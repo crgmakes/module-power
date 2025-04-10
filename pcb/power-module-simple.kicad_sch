@@ -33623,7 +33623,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33633,7 +33633,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.vishay.com/docs/28773/crcwce3.pdf"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33643,7 +33643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Thick Film Resistors - SMD 1/10Watt 4.7Kohms 5% Commercial Use"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33652,7 +33652,25 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "RMCF0805FT10K0CT-ND"
+		(property "MN" "FOJAN"
+			(at 147.32 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "FRC0603J472 TS"
+			(at 147.32 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "71-CRCW06034K70JNEAC"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33662,7 +33680,7 @@
 				(hide yes)
 			)
 		)
-		(property "JLCPCB" "C17673"
+		(property "Digikey" "541-3993-2-ND"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33672,7 +33690,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C2907166"
 			(at 147.32 177.8 0)
 			(effects
 				(font
@@ -33680,66 +33698,6 @@
 					(color 223 129 255 1)
 				)
 				(hide yes)
-			)
-		)
-		(property "Mouser" "71-CRCW080510K0FKEAC"
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 147.32 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(pin "1"
@@ -34817,7 +34775,7 @@
 		(at 247.65 173.99 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -36295,46 +36253,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 124.46 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 124.46 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 124.46 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 124.46 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 124.46 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(pin "2"
@@ -38137,7 +38055,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38147,7 +38065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38157,7 +38075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Thick Film Resistors - SMD 1/10watt 1.0Kohms 1%"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38166,7 +38084,25 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "RMCF0805FT10K0CT-ND"
+		(property "MN" "Vishay"
+			(at 163.83 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CRCW06031K00FKEA"
+			(at 163.83 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "71-CRCW0603-1.0K-E3"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38176,7 +38112,7 @@
 				(hide yes)
 			)
 		)
-		(property "JLCPCB" "C17513"
+		(property "Digikey" "541-1.00KHTR-ND"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38186,7 +38122,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17513"
+		(property "LCSC" "C2907113"
 			(at 163.83 177.8 0)
 			(effects
 				(font
@@ -38194,66 +38130,6 @@
 					(color 223 129 255 1)
 				)
 				(hide yes)
-			)
-		)
-		(property "Mouser" "71-CRCW080510K0FKEAC"
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 163.83 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(pin "1"
@@ -38684,46 +38560,6 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "Height" ""
-			(at 133.35 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 133.35 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 133.35 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 133.35 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 133.35 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
 			)
 		)
 		(pin "2"
