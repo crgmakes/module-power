@@ -30024,86 +30024,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:Fiducial"
-			(exclude_from_sim yes)
-			(in_bom no)
-			(on_board yes)
-			(property "Reference" "FID"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Fiducial"
-				(at 0 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Fiducial Marker"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "fiducial marker"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Fiducial*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Fiducial_0_1"
-				(circle
-					(center 0 0)
-					(radius 1.27)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Mechanical:MountingHole"
 			(pin_names
 				(offset 1.016)
@@ -30867,6 +30787,12 @@
 		(uuid "a9360ab7-a701-45cd-b59c-752a3940439b")
 	)
 	(junction
+		(at 67.31 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b5c36f18-a092-41a7-9192-9b79eb902ec4")
+	)
+	(junction
 		(at 44.45 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -30960,6 +30886,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 30.48) (xy 76.2 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c9c806a-664d-4890-9c41-f48aabcb7fe4")
+	)
+	(wire
+		(pts
 			(xy 92.71 78.74) (xy 92.71 74.93)
 		)
 		(stroke
@@ -30990,7 +30926,17 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 34.29) (xy 45.72 34.29)
+			(xy 148.59 24.13) (xy 148.59 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "352a99a4-3f32-46c0-81ce-eb5f16332821")
+	)
+	(wire
+		(pts
+			(xy 30.48 34.29) (xy 41.91 34.29)
 		)
 		(stroke
 			(width 0)
@@ -31050,6 +30996,16 @@
 	)
 	(wire
 		(pts
+			(xy 148.59 25.4) (xy 140.97 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45346334-9b29-42b3-b712-0c9828223b36")
+	)
+	(wire
+		(pts
 			(xy 133.35 38.1) (xy 133.35 41.91)
 		)
 		(stroke
@@ -31070,7 +31026,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 39.37) (xy 66.04 39.37)
+			(xy 67.31 39.37) (xy 62.23 39.37)
 		)
 		(stroke
 			(width 0)
@@ -31097,6 +31053,16 @@
 			(type default)
 		)
 		(uuid "5715ad77-0905-45f8-810f-d615a689414f")
+	)
+	(wire
+		(pts
+			(xy 67.31 34.29) (xy 76.2 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58b5dd13-e732-4654-b64c-812918b27b6a")
 	)
 	(wire
 		(pts
@@ -31200,7 +31166,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 29.21) (xy 72.39 34.29)
+			(xy 67.31 29.21) (xy 67.31 34.29)
 		)
 		(stroke
 			(width 0)
@@ -31340,7 +31306,7 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 34.29) (xy 72.39 34.29)
+			(xy 62.23 34.29) (xy 67.31 34.29)
 		)
 		(stroke
 			(width 0)
@@ -31390,7 +31356,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 41.91) (xy 72.39 39.37)
+			(xy 67.31 41.91) (xy 67.31 39.37)
 		)
 		(stroke
 			(width 0)
@@ -31510,7 +31476,7 @@
 	)
 	(wire
 		(pts
-			(xy 34.29 39.37) (xy 45.72 39.37)
+			(xy 30.48 39.37) (xy 41.91 39.37)
 		)
 		(stroke
 			(width 0)
@@ -31599,7 +31565,7 @@
 		(uuid "fe69d72f-5948-4e0a-9a8c-ab715f552419")
 	)
 	(label "AC_N"
-		(at 39.37 39.37 0)
+		(at 35.56 39.37 0)
 		(effects
 			(font
 				(size 1 1)
@@ -31649,7 +31615,7 @@
 		(uuid "953c84ab-203d-414b-9175-8e0ce587dfd7")
 	)
 	(label "AC_L"
-		(at 39.37 34.29 0)
+		(at 35.56 34.29 0)
 		(effects
 			(font
 				(size 1 1)
@@ -31743,7 +31709,7 @@
 				)
 			)
 		)
-		(property "Value" "V5_RAW"
+		(property "Value" "RAW_5V"
 			(at 99.06 71.12 0)
 			(effects
 				(font
@@ -32667,7 +32633,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "5V_RAW"
+		(property "Value" "RAW_5V"
 			(at 67.31 69.342 0)
 			(effects
 				(font
@@ -32894,15 +32860,6 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
-			(at 209.55 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 209.55 173.99 0)
 			(effects
 				(font
@@ -33372,118 +33329,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 16.51 187.96 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "337da69f-a0b5-4327-89e7-205f66fa1cdb")
-		(property "Reference" "FID3"
-			(at 19.05 186.6899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 19.05 189.2299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 16.51 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "relay-module"
-				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
-					(reference "FID3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Polarized_Small")
 		(at 135.89 86.36 0)
 		(unit 1)
@@ -33881,118 +33726,6 @@
 			(project "power-module"
 				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
 					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 16.51 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3c3eab47-7f2c-4e21-95ee-462dfb5715cc")
-		(property "Reference" "FID1"
-			(at 19.05 176.5299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 19.05 179.0699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 16.51 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "relay-module"
-				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
-					(reference "FID1")
 					(unit 1)
 				)
 			)
@@ -34948,7 +34681,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 72.39 41.91 0)
+		(at 67.31 41.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -34956,7 +34689,7 @@
 		(dnp no)
 		(uuid "6b853e1c-7572-4355-9a3c-5ef2a1344627")
 		(property "Reference" "#PWR03"
-			(at 72.39 48.26 0)
+			(at 67.31 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34965,7 +34698,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 72.39 45.72 0)
+			(at 67.31 45.72 0)
 			(effects
 				(font
 					(size 1 1)
@@ -34973,7 +34706,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 72.39 41.91 0)
+			(at 67.31 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34982,7 +34715,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 72.39 41.91 0)
+			(at 67.31 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34991,7 +34724,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 72.39 41.91 0)
+			(at 67.31 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35417,7 +35150,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 72.39 29.21 0)
+		(at 67.31 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -35425,7 +35158,7 @@
 		(dnp no)
 		(uuid "89cfcb9a-1bd9-42f6-8aff-03e621e24fea")
 		(property "Reference" "#PWR01"
-			(at 72.39 33.02 0)
+			(at 67.31 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35434,7 +35167,7 @@
 			)
 		)
 		(property "Value" "LINE_5V"
-			(at 70.612 25.654 0)
+			(at 65.532 25.654 0)
 			(effects
 				(font
 					(size 1 1)
@@ -35443,7 +35176,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 72.39 29.21 0)
+			(at 67.31 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35452,7 +35185,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 72.39 29.21 0)
+			(at 67.31 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35461,7 +35194,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 72.39 29.21 0)
+			(at 67.31 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -36211,118 +35944,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Fiducial")
-		(at 16.51 182.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b5b921ea-1ae3-46d5-a38c-a9503c4b0465")
-		(property "Reference" "FID2"
-			(at 19.05 181.6099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Fiducial"
-			(at 19.05 184.1499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Fiducial Marker"
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 16.51 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(instances
-			(project "relay-module"
-				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
-					(reference "FID2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "CRGM Symbols:High Voltage")
 		(at 259.08 173.99 0)
 		(unit 1)
@@ -36596,7 +36217,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "5V_RAW"
+		(property "Value" "RAW_5V"
 			(at 92.71 71.882 0)
 			(effects
 				(font
@@ -36887,6 +36508,111 @@
 			(project "power-module"
 				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 76.2 30.48 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "c40ceeaa-181e-4333-ae20-445e45d77c34")
+		(property "Reference" "TP4"
+			(at 76.2 23.876 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "LINE_5V"
+			(at 76.2 25.4 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 71.12 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 71.12 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_MF_PN" ""
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MN_PN" ""
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 76.2 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "96382c77-c512-4bbb-bb0a-b46ffd42ae9a")
+		)
+		(instances
+			(project "power-module-simple"
+				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -37282,7 +37008,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 31.75 39.37 90)
+		(at 27.94 39.37 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -37290,7 +37016,7 @@
 		(dnp no)
 		(uuid "d507ccb2-79e6-44d3-af85-cc86e54e2e51")
 		(property "Reference" "H2"
-			(at 26.924 39.624 90)
+			(at 23.114 39.624 90)
 			(effects
 				(font
 					(size 1 1)
@@ -37298,7 +37024,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 30.734 42.164 90)
+			(at 26.924 42.164 90)
 			(effects
 				(font
 					(size 1 1)
@@ -37306,7 +37032,7 @@
 			)
 		)
 		(property "Footprint" "CRGM Mechanical:MountingHole_3.2mm_M3_Pad_Via"
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37315,7 +37041,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37324,7 +37050,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37333,7 +37059,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37341,7 +37067,7 @@
 			)
 		)
 		(property "LCSC_MF_PN" ""
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37349,7 +37075,7 @@
 			)
 		)
 		(property "MN_PN" ""
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37357,7 +37083,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37365,7 +37091,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 31.75 39.37 0)
+			(at 27.94 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37531,7 +37257,7 @@
 	)
 	(symbol
 		(lib_id "CRG Makes:IRM-10-5")
-		(at 55.88 36.83 0)
+		(at 52.07 36.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -37539,7 +37265,7 @@
 		(dnp no)
 		(uuid "db76640a-9732-4d8a-aa9c-c2e425b84c54")
 		(property "Reference" "PS1"
-			(at 55.88 28.956 0)
+			(at 52.07 28.956 0)
 			(effects
 				(font
 					(size 1 1)
@@ -37547,7 +37273,7 @@
 			)
 		)
 		(property "Value" "IRM-10-5"
-			(at 55.88 30.734 0)
+			(at 52.07 30.734 0)
 			(effects
 				(font
 					(size 1 1)
@@ -37555,7 +37281,7 @@
 			)
 		)
 		(property "Footprint" "Converter_ACDC:Converter_ACDC_MeanWell_IRM-10-xx_THT"
-			(at 55.88 45.72 0)
+			(at 52.07 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37564,7 +37290,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.meanwell.com/Upload/PDF/IRM-10/IRM-10-SPEC.PDF"
-			(at 55.88 46.99 0)
+			(at 52.07 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37573,7 +37299,7 @@
 			)
 		)
 		(property "Description" "5V, 2A, 10W, Isolated, AC-DC, 222A(IRM10)"
-			(at 57.912 49.53 0)
+			(at 54.102 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37582,7 +37308,7 @@
 			)
 		)
 		(property "MPN" "IRM-10-5"
-			(at 56.642 57.15 0)
+			(at 52.832 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37591,7 +37317,7 @@
 			)
 		)
 		(property "Mouser" "709-IRM10-5"
-			(at 56.388 51.054 0)
+			(at 52.578 51.054 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37600,7 +37326,7 @@
 			)
 		)
 		(property "Digikey" "1866-3032-ND"
-			(at 56.388 52.832 0)
+			(at 52.578 52.832 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37609,7 +37335,7 @@
 			)
 		)
 		(property "LCSC" "C2857903"
-			(at 56.388 55.626 0)
+			(at 52.578 55.626 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37618,7 +37344,7 @@
 			)
 		)
 		(property "MN" "Meanwell"
-			(at 56.134 54.102 0)
+			(at 52.324 54.102 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37642,6 +37368,111 @@
 			(project ""
 				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
 					(reference "PS1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 148.59 24.13 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "e505c35c-ebca-4833-bdc1-1af267a4cab9")
+		(property "Reference" "TP5"
+			(at 148.59 17.526 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Value" "USB_5V"
+			(at 148.59 19.05 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 143.51 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 143.51 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_MF_PN" ""
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MN_PN" ""
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 148.59 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7cdf66c9-0fb7-47b7-a9bf-e74723be75d1")
+		)
+		(instances
+			(project "power-module-simple"
+				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf"
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -37716,7 +37547,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
-		(at 31.75 34.29 90)
+		(at 27.94 34.29 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -37724,7 +37555,7 @@
 		(dnp no)
 		(uuid "f2c8ef10-9dbf-4796-bef5-522364f06adb")
 		(property "Reference" "H1"
-			(at 26.924 34.29 90)
+			(at 23.114 34.29 90)
 			(effects
 				(font
 					(size 1 1)
@@ -37732,7 +37563,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 30.48 30.988 90)
+			(at 26.67 30.988 90)
 			(effects
 				(font
 					(size 1 1)
@@ -37740,7 +37571,7 @@
 			)
 		)
 		(property "Footprint" "CRGM Mechanical:MountingHole_3.2mm_M3_Pad_Via"
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37749,7 +37580,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37758,7 +37589,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37767,7 +37598,7 @@
 			)
 		)
 		(property "Height" ""
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37775,7 +37606,7 @@
 			)
 		)
 		(property "LCSC_MF_PN" ""
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37783,7 +37614,7 @@
 			)
 		)
 		(property "MN_PN" ""
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37791,7 +37622,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37799,7 +37630,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 31.75 34.29 0)
+			(at 27.94 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
