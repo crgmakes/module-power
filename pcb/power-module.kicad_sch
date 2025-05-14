@@ -35119,7 +35119,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Green"
+		(property "Value" "Blue"
 			(at 165.1 187.96 90)
 			(effects
 				(font
@@ -35148,7 +35148,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LED GREEN CLEAR SMD 2V"
+		(property "Description" "20mA 240mcd Colorless Blue 120° 70mW 3.3V 0603"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -35166,7 +35166,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XL-1608UGC-04"
+		(property "MPN" "XL-1608UBC-04"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -35175,7 +35175,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "859-LTST-C191KGKT"
+		(property "Mouser" "710-150060BS75020"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -35185,7 +35185,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "160-1446-2-ND"
+		(property "Digikey" "5962-XL-1608UBC-04TR-ND"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -35195,7 +35195,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C965804"
+		(property "LCSC" "C965807"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -36943,7 +36943,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Green"
+		(property "Value" "Orange"
 			(at 148.59 187.96 90)
 			(effects
 				(font
@@ -36972,7 +36972,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LED GREEN CLEAR SMD 2V"
+		(property "Description" "20mA 315mcd Colorless Orange 120° 50mW 2.3V 0603"
 			(at 147.32 186.69 0)
 			(effects
 				(font
@@ -36990,7 +36990,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "XL-1608UGC-04"
+		(property "MPN" "XL-1608UOC-06"
 			(at 147.32 186.69 0)
 			(effects
 				(font
@@ -36999,7 +36999,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "859-LTST-C191KGKT"
+		(property "Mouser" "859-LTST-C190KFKT"
 			(at 147.32 186.69 0)
 			(effects
 				(font
@@ -37009,7 +37009,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "160-1446-2-ND"
+		(property "Digikey" "5962-XL-1608UOC-06TR-ND"
 			(at 147.32 186.69 0)
 			(effects
 				(font
@@ -37019,7 +37019,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C965804"
+		(property "LCSC" "C965800"
 			(at 147.32 186.69 0)
 			(effects
 				(font
