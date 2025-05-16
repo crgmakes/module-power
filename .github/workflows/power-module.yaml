@@ -41,12 +41,12 @@ jobs:
       shell: bash
       run: |
         echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
-        echo "branch=${{ steps.extract_branch.outputs.branch }} main=${{ env.main_branch }}"
+        echo "branch=${steps.extract_branch.outputs.branch} main=${env.main_branch}"
       # run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
 
     - name: Update the PCBs with on default branch with git hash
-      if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
+      # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
       run: |
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"    
@@ -54,12 +54,12 @@ jobs:
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
 
-    - name: Update the PCBs with the git hash and BETA.
-      if: steps.extract_branch.outputs.branch != env.main_branch
-      run: |
-        export COMMIT=$(git rev-parse --short HEAD)
-        echo "COMMIT = ${COMMIT}"
-        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/power-module.kicad_pcb
+    # - name: Update the PCBs with the git hash and BETA.
+    #   if: steps.extract_branch.outputs.branch != env.main_branch
+    #   run: |
+    #     export COMMIT=$(git rev-parse --short HEAD)
+    #     echo "COMMIT = ${COMMIT}"
+    #     sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/power-module.kicad_pcb
 
     - name: Generate Export Files
       run: |
