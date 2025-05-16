@@ -39,19 +39,21 @@ variants:
     variant: jlcpcb
     pre_transform: fix_rotation
 
+ignore_unconnected: false
+
 preflight:
   run_erc: false
   update_xml: true
   # Disable DRC for now while GPereira updates these items.
   run_drc: false
   check_zone_fills: true
-  ignore_unconnected: false
+
 
 outputs:
   - name: 'bom'
     comment: 'Bill of Materials'
     type: bom
-    dir: .
+    dir: doc
     options:
       csv:
         hide_pcb_info: true
@@ -61,7 +63,7 @@ outputs:
   - name: 'html_bom'
     comment: 'HTML BOM'
     type: bom
-    dir: .
+    dir: doc
     options:
       html:
         datasheet_as_link: Datasheet
@@ -71,16 +73,16 @@ outputs:
   - name: 'print_sch'
     comment: "Print schematic (PDF)"
     type: pdf_sch_print
-    dir: .
+    dir: doc
     options:
-      output: Schematic.pdf
+      output: power-module-schematic.pdf
 
 # removing to prevent ci from hanging from long export time
 
 #  - name: 'print_front'
 #    comment: "Print F.Cu+Dwgs.User"
 #    type: pdf_pcb_print
-#    dir: .
+#    dir: doc
 #    options:
 #      output_name: PCB.pdf
 #      separated: true
@@ -101,7 +103,7 @@ outputs:
   - name: 'gerbers'
     comment: "Gerbers for JLC"
     type: gerber
-    dir: gerbers
+    dir: fabrication
     options:
       # generic layer options
       exclude_edge_layer: true
@@ -148,7 +150,7 @@ outputs:
   - name: 'drill_file'
     comment: 'Drill file for JLC'
     type: excellon
-    dir: gerbers
+    dir: fabrication
     options:
       metric_units: false
       pth_and_npth_single_file: true
@@ -156,14 +158,14 @@ outputs:
   - name: board_top
     comment: "Top layer view"
     type: pcbdraw
-    dir: .
+    dir: doc
     options:
       format: png
 
   - name: board_bottom
     comment: "Bottom layer view"
     type: pcbdraw
-    dir: .
+    dir: doc
     options:
       format: png
       bottom: true
@@ -171,13 +173,14 @@ outputs:
   - name: 'pick_and_place_file'
     comment: 'Pick and Place Location File'
     type: position
-    dir: gerbers
+    dir: fabrication
     options:
       format: CSV
 
   - name: 'bom_jlc'
-    comment: "BoM for JLC"
+    comment: "BOM for JLC"
     type: bom
+    dir: doc
     options:
       output: '%f_bom_jlc.%x'
         # exclude_filter: only_jlc_parts
@@ -189,8 +192,8 @@ outputs:
           name: Designator
         - field: Footprint
           name: Footprint
-        - field: JLCPCB
-          name: 'LCSC Part #'
+        - field: LCSC
+          name: 'LCSC'
       csv:
         hide_pcb_info: true
         hide_stats_info: true
@@ -199,6 +202,7 @@ outputs:
   - name: 'pick_and_place_jlc'
     comment: 'Pick and place file, JLC style'
     type: position
+    dir: fabrication
     options:
       output: '%f_cpl_jlc.%x'
       format: CSV
@@ -221,6 +225,7 @@ outputs:
   - name: 'pick_and_place_jlc_with_connectors'
     comment: 'Pick and place file, JLC style with connectors'
     type: position
+    dir: fabrication
     options:
       output: '%f_cpl_jlc_conn.%x'
       format: CSV
@@ -243,4 +248,13 @@ outputs:
   - name: 'step_file'
     comment: 'STEP file generation'
     type: export_3d
-    dir: .
+    dir: doc
+
+ # html ibom
+  - name: ibom
+    comment: Interactive BOM
+    type: ibom
+    dir: doc/ibom
+    options:
+      dark_mode: true
+      name_format: "index"

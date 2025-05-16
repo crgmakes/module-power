@@ -71319,7 +71319,7 @@
 			)
 		)
 	)
-	(gr_text "${COMMIT}"
+	(gr_text "<<hash>>"
 		(at 77 150 0)
 		(layer "B.SilkS")
 		(uuid "613b28df-701b-4332-aa52-2a98ca907e46")

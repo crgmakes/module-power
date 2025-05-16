@@ -37,22 +37,22 @@ jobs:
       with:
         lfs: true
         
-    - name: Extract branch name
-      shell: bash
-      run: |
-        echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
-      # run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
+    # - name: Extract branch name
+    #   shell: bash
+    #   run: |
+    #     echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+    #   # run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+    #   id: extract_branch
 
     - name: Update the PCBs with on default branch with git hash
       # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
       run: |
-        echo "branch='${{steps.extract_branch.outputs.branch}}' main='${{env.main_branch}}'"
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"    
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
+      # echo "branch='${{steps.extract_branch.outputs.branch}}' main='${{env.main_branch}}'"
 
     # - name: Update the PCBs with the git hash and BETA.
     #   if: steps.extract_branch.outputs.branch != env.main_branch
@@ -66,13 +66,14 @@ jobs:
         cd pcb
         rm -rf production/
         kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
-        zip -r -j aquarius-power-module-pcb.zip production/
+        zip -r aquarius-power-module-pcb.zip production/
+    #   zip -r -j aquarius-power-module-pcb.zip production/
 
-# Zip and Upload
+# Upload
     - name: Upload Files as Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: aquarius-power-module-pcb.zip
+        name: aquarius-power-module-pcb
         path: pcb/aquarius-power-module-pcb.zip
         if-no-files-found: error
         retention-days: 60
