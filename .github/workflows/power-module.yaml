@@ -62,7 +62,7 @@ jobs:
       run: |
         cd pcb
         rm -rf production/
-        kibot -c pcb/power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
+        kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
         zip -r -j aquarius-power-module-pcb.zip production/
 
 # Zip and Upload
