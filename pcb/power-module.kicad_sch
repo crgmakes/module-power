@@ -351,9 +351,8 @@
 				(at 0 2.794 0)
 				(effects
 					(font
-						(size 1.778 1.778)
-						(thickness 0.3556)
-						(bold yes)
+						(size 1 1)
+						(thickness 0.125)
 					)
 					(justify left bottom)
 				)
@@ -369,8 +368,8 @@
 					(justify left top)
 				)
 			)
-			(property "Footprint" "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical"
-				(at 3.556 8.89 0)
+			(property "Footprint" "CRGM Connector:SM04B-SRSS-TB"
+				(at 3.048 -13.716 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -378,8 +377,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
-				(at 0 0 0)
+			(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
+				(at 3.556 -27.432 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -387,8 +386,8 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "JST SH 1.0mm 4 Position"
-				(at 3.81 6.604 0)
+			(property "Description" "4 Position, 1mm pitch"
+				(at 3.048 -16.002 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -396,12 +395,49 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
-				(at 0 0 0)
+			(property "MN" "JST"
+				(at 3.302 -11.684 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "BM04B-SRSS-TBT(LF)(SN)"
+				(at 3.81 -18.542 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "306-BM04BSRSSTBTLFSN"
+				(at 3.556 -21.082 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Digikey" "455-BM04B-SRSS-TBTR-ND"
+				(at 3.556 -23.368 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC" "C2763614"
+				(at 3.048 -25.4 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
 				)
 			)
 			(symbol "JST-SH-4_1_0"
@@ -2759,7 +2795,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
 				(at 0 6.35 0)
 				(effects
 					(font
@@ -2778,8 +2814,53 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "5A 12V Fixed LDO Linear Regulator, 1.5V, TO-220/TO-252/TO-263"
+			(property "Description" "5A 12V Fixed LDO Linear Regulator, 3.3V, TO-220/TO-252/TO-263"
 				(at 4.572 -18.796 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MN" "Diodes Incorporated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "AZ1084CD-3.3TRG1"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Mouser" "621-AZ1084CD-3.3TRG1"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Digikey" "AZ1084CD-3.3TRG1DITR-ND"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC" "C151391"
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -29660,6 +29741,15 @@
 					(hide yes)
 				)
 			)
+			(property "Sim.Pin" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
 			(property "ki_keywords" "LED diode light-emitting-diode"
 				(at 0 0 0)
 				(effects
@@ -29792,21 +29882,19 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "R"
-				(at 0.762 0.508 0)
+				(at 0 0 90)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.016 1.016)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "R_Small"
-				(at 0.762 -1.016 0)
+				(at 1.778 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" ""
@@ -30220,7 +30308,7 @@
 			(pin_names
 				(offset 1.016)
 			)
-			(exclude_from_sim yes)
+			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
 			(property "Reference" "H"
@@ -30307,7 +30395,7 @@
 				(offset 1.016)
 				(hide yes)
 			)
-			(exclude_from_sim yes)
+			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
 			(property "Reference" "H"
@@ -31862,7 +31950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 163.83 189.23 0)
 			(effects
 				(font
@@ -31950,6 +32038,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -31958,6 +32047,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -31966,6 +32056,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -31974,6 +32065,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -32067,6 +32159,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -32075,6 +32168,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -32083,6 +32177,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -32091,6 +32186,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -32148,7 +32244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 140.97 36.83 0)
 			(effects
 				(font
@@ -32469,7 +32565,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 107.95 90.17 0)
 			(effects
 				(font
@@ -32786,7 +32882,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 128.27 90.17 0)
 			(effects
 				(font
@@ -33009,7 +33105,7 @@
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 214.63 173.99 0)
 		(unit 1)
-		(exclude_from_sim no)
+		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -33052,6 +33148,15 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
+			(at 214.63 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Enable" "0"
 			(at 214.63 173.99 0)
 			(effects
 				(font
@@ -33115,7 +33220,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 99.06 90.17 0)
 			(effects
 				(font
@@ -33325,6 +33430,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -33333,6 +33439,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -33341,6 +33448,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -33349,6 +33457,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -33479,6 +33588,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -33487,6 +33597,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -33495,6 +33606,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -33503,6 +33615,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -33640,6 +33753,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -33648,6 +33762,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -33656,6 +33771,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -33664,6 +33780,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -33823,6 +33940,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -33831,6 +33949,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -33839,6 +33958,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -33847,6 +33967,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -34034,7 +34155,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 120.65 90.17 0)
 			(effects
 				(font
@@ -34168,7 +34289,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 147.32 175.26 0)
 			(effects
 				(font
@@ -34367,6 +34488,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -34375,6 +34497,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -34383,6 +34506,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -34391,6 +34515,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -34610,6 +34735,51 @@
 			)
 		)
 		(property "LCSC" "C2907114"
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC_MF_PN" ""
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MN_PN" ""
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
 			(at 124.46 45.72 0)
 			(effects
 				(font
@@ -35060,6 +35230,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -35068,6 +35239,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -35076,6 +35248,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -35084,6 +35257,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -35397,7 +35571,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 135.89 90.17 0)
 			(effects
 				(font
@@ -35464,7 +35638,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 31.75 129.54 0)
 			(effects
 				(font
@@ -35563,6 +35737,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -35571,6 +35746,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -35579,6 +35755,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -35587,6 +35764,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -35711,6 +35889,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -35719,6 +35898,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -35727,6 +35907,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -35735,6 +35916,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -36042,6 +36224,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -36050,6 +36233,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -36058,6 +36242,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -36066,6 +36251,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -36781,6 +36967,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -36789,6 +36976,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -36797,6 +36985,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -36805,6 +36994,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -36887,6 +37077,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -36895,6 +37086,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -36903,6 +37095,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -36911,6 +37104,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37090,7 +37284,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 			(at 163.83 175.26 0)
 			(effects
 				(font
@@ -37192,6 +37386,51 @@
 				(hide yes)
 			)
 		)
+		(property "Height" ""
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC_MF_PN" ""
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MN_PN" ""
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "71ab57bb-3cfa-4aff-afd4-2c19d48886f2")
 		)
@@ -37273,6 +37512,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -37281,6 +37521,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -37289,6 +37530,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -37297,6 +37539,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37641,6 +37884,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -37649,6 +37893,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -37657,6 +37902,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -37665,6 +37911,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37725,7 +37972,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 147.32 189.23 0)
 			(effects
 				(font
@@ -37812,6 +38059,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -37820,6 +38068,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -37828,6 +38077,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -37836,6 +38086,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37928,6 +38179,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "MN_PN" ""
@@ -37936,6 +38188,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Part Number" ""
@@ -37944,6 +38197,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Mouser Price/Stock" ""
@@ -37952,6 +38206,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
