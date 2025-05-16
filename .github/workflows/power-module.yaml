@@ -1,0 +1,104 @@
+name: Aquarius Power Module CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+on:
+  push:
+    # Use the following syntax to limit on which branches we run the workflow
+    # branches: [ master ]
+    paths:
+      - 'pcb/power-module.kicad_sch'
+      - 'pcb/power-module.kicad_pcb'
+      - 'pcb/power-module.kibot.yaml'
+      - '.github/workflows/power-module.yml'
+  # pull_request:
+  #   # branches: [ master ]
+  #   paths:
+  #     - 'test_subdir/test_subdir.kicad_sch'
+  #     - 'test_subdir/test_subdir.kicad_pcb'
+  #     - 'test_subdir/test_subdir.kibot.yaml'
+  #     - 'test_subdir/Makefile'
+  #     - '.github/workflows/test_subdir.yml'
+  # schedule:
+  #   # Run on Wednesday @ 5:43 to keep the artifacts alive
+  #   - cron: '43 5 * * 3'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  ERC:
+    runs-on: ubuntu-latest
+    # Here use kicad9_auto:latest if you don't need all features, i.e. Blender render
+    # You can use ghcr.io/inti-cmnb/kicad9_auto_full:dev to get the last fixes
+    # In this case change "8" by the KiCad you need. Also don't forget to change this tag
+    # once your project is finished, pointing to a stable KiBot release
+    # Use the same for all steps
+    container: ghcr.io/inti-cmnb/kicad9_auto:latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run ERC
+      run: |
+        [ -f *.kicad_sch ] && kibot  -d production -s update_xml,run_drc -i
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: ERC_Output
+        path: production
+
+  DRC:
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad9_auto:latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run DRC
+      run: |
+        [ -f *.kicad_pcb ] && kibot  -d production -s update_xml,erc -i
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: DRC_Output
+        path: production
+
+  FabSch:
+    name: Schematic fabrication files
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad9_auto:latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run schematic stuff
+      run: |
+        [ -f *.kicad_sch ] && kibot  -d production -s drc,erc print_sch bom_html
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: FabSch_Output
+        path: production
+
+  FabPCB:
+    name: PCB fabrication files
+    runs-on: ubuntu-latest
+    # Here we need Blender so we use the full image
+    container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+    needs: DRC
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run PCB stuff
+      run: |
+        [ -f *.kicad_pcb ] && kibot  -d production -s all print_front gerbers _blender_3d_top
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: FabPCB_Output
+        path: production
