@@ -38,13 +38,13 @@ jobs:
 
     - name: Run ERC
       run: |
-        [ -f *.kicad_sch ] && kibot --verbose -d production -s update_xml,run_drc -i
+        [ -f pcb/*.kicad_sch ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s update_xml,run_drc -v -i
 
     - name: Retrieve results
       uses: actions/upload-artifact@v4
       with:
         name: ERC_Output
-        path: production
+        path: pcb/production
 
   DRC:
     runs-on: ubuntu-latest
