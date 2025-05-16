@@ -9,7 +9,7 @@ on:
       - 'pcb/power-module.kicad_sch'
       - 'pcb/power-module.kicad_pcb'
       - 'pcb/power-module.kibot.yaml'
-      - '.github/workflows/power-module.yml'
+      - '.github/workflows/power-module.yaml'
   # pull_request:
   #   # branches: [ master ]
   #   paths:
