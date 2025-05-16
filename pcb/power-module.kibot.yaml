@@ -39,7 +39,7 @@ variants:
     variant: jlcpcb
     pre_transform: fix_rotation
 
-ignore_unconnected: false
+# ignore_unconnected: false
 
 preflight:
   run_erc: false
