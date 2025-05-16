@@ -71319,6 +71319,18 @@
 			)
 		)
 	)
+	(gr_text "${COMMIT}"
+		(at 77 150 0)
+		(layer "B.SilkS")
+		(uuid "613b28df-701b-4332-aa52-2a98ca907e46")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.127)
+				(bold yes)
+			)
+		)
+	)
 	(gr_text "FNWW"
 		(at 82.9 137.2 0)
 		(layer "B.SilkS")

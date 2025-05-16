@@ -1,104 +1,82 @@
+# Aquarius - Automation Simplified
+#
+# @brief Git script for exporting PCB data for Power Module
+# @date 5/16/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
 name: Aquarius Power Module CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
 on:
   push:
-    # Use the following syntax to limit on which branches we run the workflow
-    # branches: [ master ]
     paths:
       - 'pcb/power-module.kicad_sch'
       - 'pcb/power-module.kicad_pcb'
       - 'pcb/power-module.kibot.yaml'
       - '.github/workflows/power-module.yaml'
-  # pull_request:
-  #   # branches: [ master ]
-  #   paths:
-  #     - 'test_subdir/test_subdir.kicad_sch'
-  #     - 'test_subdir/test_subdir.kicad_pcb'
-  #     - 'test_subdir/test_subdir.kibot.yaml'
-  #     - 'test_subdir/Makefile'
-  #     - '.github/workflows/test_subdir.yml'
-  # schedule:
-  #   # Run on Wednesday @ 5:43 to keep the artifacts alive
-  #   - cron: '43 5 * * 3'
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  workflow_dispatch:
+  release:
+    types: [ published ]
+    
 jobs:
-  ERC:
-    runs-on: ubuntu-latest
-    # Here use kicad9_auto:latest if you don't need all features, i.e. Blender render
-    # You can use ghcr.io/inti-cmnb/kicad9_auto_full:dev to get the last fixes
-    # In this case change "8" by the KiCad you need. Also don't forget to change this tag
-    # once your project is finished, pointing to a stable KiBot release
-    # Use the same for all steps
-    container: ghcr.io/inti-cmnb/kicad9_auto:latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Run ERC
-      run: |
-        [ -f pcb/*.kicad_sch ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s update_xml,run_drc -v -i
-
-    - name: Retrieve results
-      uses: actions/upload-artifact@v4
-      with:
-        name: ERC_Output
-        path: pcb/production
-
-  DRC:
+  export-ecad:
+    name: Export ECAD
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad9_auto:latest
-    needs: ERC
-
+      
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Run DRC
+    - name: Generate Short SHA Environment Variable
+      run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+      
+    - name: Update system repositories, Install Required Libraries and Initialize git-lfs
       run: |
-        [ -f pcb/*.kicad_pcb ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s update_xml,erc -v -i
+        apt update
+        apt -y install git git-lfs zip librsvg2-bin imagemagick
+        git lfs install
 
-    - name: Retrieve results
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: Update the PCBs with on default branch with git hash
+      if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
+      run: |
+        export COMMIT=$(git rev-parse --short HEAD)
+        echo "COMMIT = ${COMMIT}"    
+        echo "ref: ${{ github.ref }}"
+        echo "default: ${{ env.default }}"
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
+
+    - name: Update the PCBs with the git hash and BETA.
+      if: steps.extract_branch.outputs.branch != env.main_branch
+      run: |
+        export COMMIT=$(git rev-parse --short HEAD)
+        echo "COMMIT = ${COMMIT}"
+        sed -i "s!<<hash>>!BETA-${COMMIT}!" pcb/power-module.kicad_pcb
+
+    - name: Generate Export Files
+      run: |
+        cd pcb
+        rm -rf production/
+        kibot -c pcb/power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
+        zip -r -j aquarius-power-module-pcb.zip production/
+
+# Zip and Upload
+    - name: Upload Files as Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: DRC_Output
-        path: pcb/production
+        name: aquarius-power-module-pcb.zip
+        path: pcb/aquarius-power-module-pcb.zip
+        if-no-files-found: error
+        retention-days: 60
 
-  FabSch:
-    name: Schematic fabrication files
-    runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad9_auto:latest
-    needs: ERC
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Run schematic stuff
-      run: |
-        [ -f pcb/*.kicad_sch ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s drc,erc print_sch bom_html -v
-
-    - name: Retrieve results
-      uses: actions/upload-artifact@v4
+    - name: Upload Artifacts to Release
+      uses: softprops/action-gh-release@v1
+      if: github.event_name == 'release'
       with:
-        name: FabSch_Output
-        path: pcb/production
-
-  FabPCB:
-    name: PCB fabrication files
-    runs-on: ubuntu-latest
-    # Here we need Blender so we use the full image
-    container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
-    needs: DRC
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Run PCB stuff
-      run: |
-        [ -f pcb/*.kicad_pcb ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s all print_front gerbers _blender_3d_top -v
-
-    - name: Retrieve results
-      uses: actions/upload-artifact@v4
-      with:
-        name: FabPCB_Output
-        path: pcb/production
+        files: |
+          pcb/aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
