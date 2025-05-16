@@ -48,7 +48,6 @@ preflight:
   ignore_unconnected: false
 
 outputs:
-
   - name: 'bom'
     comment: 'Bill of Materials'
     type: bom
@@ -243,5 +242,5 @@ outputs:
 
   - name: 'step_file'
     comment: 'STEP file generation'
-    type: step
+    type: export_3d
     dir: .
