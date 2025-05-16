@@ -56,13 +56,13 @@ jobs:
 
     - name: Run DRC
       run: |
-        [ -f *.kicad_pcb ] && kibot --verbose -d production -s update_xml,erc -i
+        [ -f pcb/*.kicad_pcb ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s update_xml,erc -v -i
 
     - name: Retrieve results
       uses: actions/upload-artifact@v4
       with:
         name: DRC_Output
-        path: production
+        path: pcb/production
 
   FabSch:
     name: Schematic fabrication files
@@ -75,13 +75,13 @@ jobs:
 
     - name: Run schematic stuff
       run: |
-        [ -f *.kicad_sch ] && kibot  --verbose -d production -s drc,erc print_sch bom_html
+        [ -f *.kicad_sch ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s drc,erc print_sch bom_html -v
 
     - name: Retrieve results
       uses: actions/upload-artifact@v4
       with:
         name: FabSch_Output
-        path: production
+        path: pcb/production
 
   FabPCB:
     name: PCB fabrication files
@@ -95,10 +95,10 @@ jobs:
 
     - name: Run PCB stuff
       run: |
-        [ -f *.kicad_pcb ] && kibot  --verbose -d production -s all print_front gerbers _blender_3d_top
+        [ -f *.kicad_pcb ] && kibot -c pcb/power-module.kibot.yaml -d pcb/production -s all print_front gerbers _blender_3d_top -v
 
     - name: Retrieve results
       uses: actions/upload-artifact@v4
       with:
         name: FabPCB_Output
-        path: production
+        path: pcb/production
