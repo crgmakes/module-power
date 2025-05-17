@@ -231,7 +231,8 @@ outputs:
     type: pcbdraw
     dir: doc
     options:
-      libs: 'library/KiCAD-base'
+      libs: 
+        - library/KiCAD-base
       format: png
       margin: 10
       show_solderpaste: false
