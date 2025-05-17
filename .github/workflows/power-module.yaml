@@ -61,6 +61,8 @@ jobs:
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
+        ls -AlF pcbdraw
+        ls -AlF crgm
 
     - name: Update the PCBs with on default branch with git hash
       # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
@@ -76,9 +78,11 @@ jobs:
         cd pcb
         rm -rf production/
         kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
-        zip -r -j aquarius-power-module-fab.zip production/fab
-        zip -r -j aquarius-power-module-pnp.zip production/pnp
-        zip -r -j aquarius-power-module-doc.zip production/doc
+        cd production
+        zip -r -j ../aquarius-power-module-fab.zip fab
+        zip -r -j ../aquarius-power-module-pnp.zip pnp
+        cd doc
+        zip -r ../../aquarius-power-module-doc.zip .
     #   zip -r -j aquarius-power-module-pcb.zip production/
 
 # Upload

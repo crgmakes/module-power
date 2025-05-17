@@ -235,9 +235,9 @@ outputs:
     options:
       libs: 
         - pcbdraw/KiCAD-base
-        - pcbdraw
+        - pcbdraw/*
       format: png
-      margin: 10
+      margin: 5
       show_solderpaste: false
       show_components: all
       warnings: visible
@@ -264,7 +264,7 @@ outputs:
       copper: '#99967F'
       board: '#C3BA9B'
       copper: '#99967F'
-      # zoom: 1
+      zoom: 0.90
       orthographic: true
       ray_tracing: true
       height: 1024
