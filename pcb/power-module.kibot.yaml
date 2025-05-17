@@ -233,9 +233,10 @@ outputs:
     type: pcbdraw
     dir: doc
     options:
+      output: power-module-pcb-top.png
       libs: 
         - pcbdraw/KiCAD-base
-        - pcbdraw/*
+        - pcbdraw
       format: png
       margin: 5
       show_solderpaste: false
@@ -248,6 +249,7 @@ outputs:
     dir: doc
     extends: board_top
     options:
+      output: power-module-pcb-bottom.png
       bottom: true
 
   - name: 'step_file'
