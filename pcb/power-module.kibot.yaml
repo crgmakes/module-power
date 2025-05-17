@@ -205,7 +205,7 @@ outputs:
     dir: doc
     options:
       extra_fields: 'Description,MN,MPN'
-      show_fields: 'Value,Description,MN,MPN,Footprint"
+      show_fields: 'Value,Description,MN,MPN,Footprint'
       dark_mode: true
       name_format: "index"
       forced_name: "Aquarius Power Module"
