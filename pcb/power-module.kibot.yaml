@@ -27,6 +27,9 @@ filters:
 
 global:
   variant: default
+  extra_os:
+    - name: KICAD_USER_LIBRARY
+      value: ~/library/
 
 variants:
   - name: default
