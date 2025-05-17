@@ -204,8 +204,9 @@ outputs:
     type: ibom
     dir: doc
     options:
-      extra_fields: 'Description,MN,MPN'
       show_fields: 'Value,Description,MN,MPN,Footprint'
+      extra_fields: 'Description,MN,MPN'
+      # extra_fields: 'LCSC,Mouser,Digikey,Note'
       dark_mode: true
       name_format: "index"
       forced_name: "Aquarius Power Module"
@@ -239,3 +240,22 @@ outputs:
     type: export_3d
     dir: doc
 
+  - name: 3d
+    type: render_3d
+    options:
+      no_virtual: true
+      view: 'top'
+      copper: '#99967F'
+      board: '#C3BA9B'
+      copper: '#99967F'
+      zoom: 3
+      orthographic: true
+      ray_tracing: true
+      height: 1024
+      width: 1024
+
+  - name: 3d_back
+    type: render_3d
+    extends: 3d
+    options:
+      view: 'bottom'

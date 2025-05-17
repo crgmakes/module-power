@@ -645,7 +645,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/SM04B-SRSS-TB.step"
+		(model "${KICAD_USER_MODEL_DIR}/SM04B-SRSS-TB.step"
 			(offset
 				(xyz 0 2 0)
 			)
@@ -31592,6 +31592,7 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Converter_ACDC.3dshapes/Converter_ACDC_MeanWell-IRM-10-xx_THT.wrl"
+			(hide yes)
 			(offset
 				(xyz 0 0 0)
 			)
@@ -31602,7 +31603,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/IRM-10-5.step"
+		(model "${KICAD_USER_MODEL_DIR}/IRM-10-5.step"
 			(offset
 				(xyz -3.55 -14.2 0)
 			)
@@ -32671,7 +32672,7 @@
 			(uuid "6e34e61d-bff2-4ffa-95a2-c95e36c169a6")
 		)
 		(embedded_fonts no)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/LM66200DRLR.stp"
+		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.stp"
 			(offset
 				(xyz 0 0.02999999888 0)
 			)
@@ -38013,7 +38014,7 @@
 			(uuid "7009b0a9-f732-4d9e-8532-4344feac01be")
 		)
 		(embedded_fonts no)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/USB4105-GF-A-060.stp"
+		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.stp"
 			(offset
 				(xyz 0 -2.6 0)
 			)
