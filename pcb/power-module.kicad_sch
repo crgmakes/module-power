@@ -29269,6 +29269,24 @@
 				)
 			)
 			(property "Description" "Polarized capacitor, small symbol"
+				(at -0.508 -12.192 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MN" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -32030,6 +32048,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -32107,6 +32126,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Height" ""
@@ -32115,6 +32135,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -32247,6 +32268,15 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Samsung"
+			(at 44.45 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MF" "Samsung"
 			(at 44.45 125.73 0)
 			(effects
@@ -32265,7 +32295,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2762594"
+		(property "Mouser" "187-CL10A226MO7JZNC"
 			(at 44.45 125.73 0)
 			(effects
 				(font
@@ -32283,7 +32313,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "187-CL10A226MO7JZNC"
+		(property "LCSC" "C2762594"
 			(at 44.45 125.73 0)
 			(effects
 				(font
@@ -32298,6 +32328,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -33297,16 +33328,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C408335"
-			(at 114.3 78.74 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
 		(property "Mouser" "673-PA4332222NLT"
 			(at 114.3 78.74 90)
 			(effects
@@ -33325,12 +33346,23 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C408335"
+			(at 114.3 78.74 0)
+			(effects
+				(font
+					(size 1 1)
+					(color 223 129 255 1)
+				)
+				(hide yes)
+			)
+		)
 		(property "Height" ""
 			(at 114.3 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -33402,6 +33434,15 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Samsung"
+			(at 107.95 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MF" "Samsung"
 			(at 107.95 86.36 0)
 			(effects
@@ -33420,7 +33461,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C92487"
+		(property "Mouser" "187-CL10A106MO8NQNC"
 			(at 107.95 86.36 0)
 			(effects
 				(font
@@ -33438,7 +33479,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "187-CL10A106MO8NQNC"
+		(property "LCSC" "C92487"
 			(at 107.95 86.36 0)
 			(effects
 				(font
@@ -33453,6 +33494,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -33507,7 +33549,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.nichicon.co.jp/english/series_items/catalog_pdf/e-uwt.pdf"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588894527042031616"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -33526,12 +33568,20 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C3339"
+		(property "MN" "Honor Elec"
 			(at 135.89 86.36 0)
 			(effects
 				(font
-					(size 1 1)
-					(color 223 129 255 1)
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RVT1V101M0607"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
@@ -33547,6 +33597,16 @@
 			)
 		)
 		(property "Digikey" "493-2203-2-ND"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1 1)
+					(color 223 129 255 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C3339"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -33572,6 +33632,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -33715,6 +33776,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Height" ""
@@ -33723,6 +33785,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -34193,25 +34256,16 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Samsung"
+			(at 128.27 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MPN" "CL10A106MO8NQNC"
-			(at 128.27 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C92487"
-			(at 128.27 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Digikey" "1276-1870-2-ND"
 			(at 128.27 86.36 0)
 			(effects
 				(font
@@ -34229,12 +34283,31 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey" "1276-1870-2-ND"
+			(at 128.27 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C92487"
+			(at 128.27 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Height" ""
 			(at 128.27 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -34444,7 +34517,34 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "FOJAN"
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MPN" "FRC0603J512 TS"
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "71-CRCW0603J-5.1K-E3"
+			(at 124.46 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "541-5.1KGTR-ND"
 			(at 124.46 45.72 0)
 			(effects
 				(font
@@ -34740,8 +34840,17 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2827636"
-			(at 155.702 30.48 0)
+		(property "MN" "Nexperia"
+			(at 147.828 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "PESD5V5C1BLYL"
+			(at 150.114 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34767,17 +34876,8 @@
 				(hide yes)
 			)
 		)
-		(property "MN" "Nexperia"
-			(at 147.828 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "PESD5V5C1BLYL"
-			(at 150.114 30.48 0)
+		(property "LCSC" "C2827636"
+			(at 155.702 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34854,6 +34954,15 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Samsung"
+			(at 120.65 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MF" "Samsung"
 			(at 120.65 86.36 0)
 			(effects
@@ -34872,7 +34981,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C92487"
+		(property "Mouser" "187-CL10A106MO8NQNC"
 			(at 120.65 86.36 0)
 			(effects
 				(font
@@ -34890,7 +34999,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "187-CL10A106MO8NQNC"
+		(property "LCSC" "C92487"
 			(at 120.65 86.36 0)
 			(effects
 				(font
@@ -34905,6 +35014,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -35368,6 +35478,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Height" ""
@@ -35376,6 +35487,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances
@@ -35450,25 +35562,16 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Samsung"
+			(at 99.06 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MPN" "CL10A106MO8NQNC"
-			(at 99.06 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C92487"
-			(at 99.06 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Digikey" "1276-1870-2-ND"
 			(at 99.06 86.36 0)
 			(effects
 				(font
@@ -35486,12 +35589,31 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey" "1276-1870-2-ND"
+			(at 99.06 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C92487"
+			(at 99.06 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Height" ""
 			(at 99.06 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -35549,7 +35671,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
 			(at 99.06 116.84 0)
 			(effects
 				(font
@@ -35577,6 +35699,24 @@
 			)
 		)
 		(property "MPN" "SM04B-SRSS-TB"
+			(at 99.06 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "306-SM04BSRSSTBLFSN"
+			(at 99.06 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "455-SM04B-SRSS-TBTR-ND"
 			(at 99.06 116.84 0)
 			(effects
 				(font
@@ -35791,6 +35931,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -35921,15 +36062,6 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C165948"
-			(at 102.87 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "MN" "GTC"
 			(at 102.87 33.02 0)
 			(effects
@@ -35948,6 +36080,15 @@
 				(hide yes)
 			)
 		)
+		(property "Digikey" "2073-USB4105-GF-A-060TR-ND"
+			(at 102.87 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Mouser" "640-USB4105-GF-A-060"
 			(at 102.87 33.02 0)
 			(effects
@@ -35957,7 +36098,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "2073-USB4105-GF-A-060TR-ND"
+		(property "LCSC" "C165948"
 			(at 102.87 33.02 0)
 			(effects
 				(font
@@ -36498,6 +36639,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -36572,6 +36714,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -36835,7 +36978,34 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "FOJAN"
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MPN" "FRC0603J512 TS"
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "71-CRCW0603J-5.1K-E3"
+			(at 133.35 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "541-5.1KGTR-ND"
 			(at 133.35 45.72 0)
 			(effects
 				(font
@@ -36935,6 +37105,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37023,16 +37194,6 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "0.6"
-			(at 51.308 96.012 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
 		(property "Mouser" "595-LM66200DRLR"
 			(at 41.402 105.41 0)
 			(effects
@@ -37058,6 +37219,16 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
+			)
+		)
+		(property "Height" "0.6"
+			(at 51.308 96.012 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
 				(hide yes)
 			)
 		)
@@ -37146,6 +37317,15 @@
 				(hide yes)
 			)
 		)
+		(property "MN" "Meanwell"
+			(at 52.324 54.102 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "MPN" "IRM-10-5"
 			(at 52.832 57.15 0)
 			(effects
@@ -37175,15 +37355,6 @@
 		)
 		(property "LCSC" "C2857903"
 			(at 52.578 55.626 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MN" "Meanwell"
-			(at 52.324 54.102 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -37271,6 +37442,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37410,6 +37582,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -37486,6 +37659,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Height" ""
@@ -37494,6 +37668,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(instances

@@ -272,7 +272,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -330,6 +330,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "04551453-5f9e-494a-ac8c-abf001890ae2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Mouser" "306-SM04BSRSSTBLFSN"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a1e8c17-2622-45b5-b2b3-4c4a4488b9f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Digikey" "455-SM04B-SRSS-TBTR-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "24a62541-21f6-48df-864d-79b79e44fd6e")
 			(effects
 				(font
 					(size 1 1)
@@ -29924,51 +29950,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "88c13d99-d082-4372-8a40-bd701e91bf25")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c2a4f577-9836-440f-ab64-67ba1ae5e93b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5d097e8f-2cbd-4e97-bcac-4ab1a90adb48")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a69e20d0-8944-42f8-a635-2b06cdf3c86b")
+			(uuid "dfe2ecbb-f73a-4e46-999e-1cd6e2a6c2a1")
 			(effects
 				(font
 					(size 1 1)
@@ -30248,6 +30235,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "45b51f4e-ad3e-49a9-92fa-7e7108364aa5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MN" "Samsung"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8b8a40e6-6204-478e-b9b1-057b2ccd38b3")
 			(effects
 				(font
 					(size 1 1)
@@ -31720,12 +31720,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "FOJAN"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a7b2ac24-6de6-4336-8aac-e92700f174f8")
+			(uuid "92fc6594-2a78-44f1-a181-1d6bc425e170")
 			(effects
 				(font
 					(size 1 1)
@@ -31733,12 +31733,12 @@
 				)
 			)
 		)
-		(property "MN_PN" ""
+		(property "Mouser" "71-CRCW0603J-5.1K-E3"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f449e230-1ae4-4191-bb3e-67d7571189c2")
+			(uuid "1d7175aa-9f00-448d-b04f-c1e1221a1e77")
 			(effects
 				(font
 					(size 1 1)
@@ -31746,25 +31746,12 @@
 				)
 			)
 		)
-		(property "Mouser Part Number" ""
+		(property "Digikey" "541-5.1KGTR-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e9500153-2c57-4f48-83c7-31253b7d4d47")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e24a2cb5-107c-4af3-8eb5-f2a167c18be7")
+			(uuid "9df2489c-1a9b-444f-97f9-54c84728753b")
 			(effects
 				(font
 					(size 1 1)
@@ -32025,12 +32012,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "FOJAN"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0d7e3ec2-3bfa-40e5-a556-cb9cea80aeb2")
+			(uuid "374c2f9c-c2be-4ea0-b3d5-bec6560f71a1")
 			(effects
 				(font
 					(size 1 1)
@@ -32038,12 +32025,12 @@
 				)
 			)
 		)
-		(property "MN_PN" ""
+		(property "Mouser" "71-CRCW0603J-5.1K-E3"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ee4bd769-365f-4438-9cbe-cc7297d90819")
+			(uuid "9a4594ee-a4b1-42a0-9d77-1b385a5789cc")
 			(effects
 				(font
 					(size 1 1)
@@ -32051,25 +32038,12 @@
 				)
 			)
 		)
-		(property "Mouser Part Number" ""
+		(property "Digikey" "541-5.1KGTR-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d7916c06-15b9-4305-9dba-701553976a0a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "28f9af09-124a-4742-be4c-34b10ccd8849")
+			(uuid "9696b912-4572-484a-b394-01b17f64524d")
 			(effects
 				(font
 					(size 1 1)
@@ -33138,7 +33112,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.nichicon.co.jp/english/series_items/catalog_pdf/e-uwt.pdf"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588894527042031616"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -33160,19 +33134,6 @@
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "JLCPCB" "C3339"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7fe71ec2-35cd-4162-af67-4a5e736aaa20")
-			(effects
-				(font
-					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -33242,12 +33203,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "Honor Elec"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "324dd42d-769b-465d-8fb1-c91c44ec08e1")
+			(uuid "2f827539-44cf-410f-a492-c71a42c283c5")
 			(effects
 				(font
 					(size 1 1)
@@ -33255,38 +33216,12 @@
 				)
 			)
 		)
-		(property "MN_PN" ""
+		(property "MPN" "RVT1V101M0607"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "80a68241-9d2c-436f-9b58-19373450db25")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a4df96bc-41e9-48b2-8613-40a899e9f570")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7ec05507-c711-4f6e-89b0-e00f236c9c27")
+			(uuid "e40606e3-2faa-41ba-a367-6a920eaf25ca")
 			(effects
 				(font
 					(size 1 1)
@@ -35230,51 +35165,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "Samsung"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "66b5ced3-2335-45e9-a751-fee6bc880a11")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7bf25e41-3656-4862-9c10-8dd742175feb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7e526bd1-604d-4514-aca2-b574f7546d0a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a875388b-8eb8-49b7-8d84-762960e5f31b")
+			(uuid "44bc8eb5-bbfa-49c0-90fc-06e2e4587d41")
 			(effects
 				(font
 					(size 1 1)
@@ -35806,51 +35702,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b2d30183-ee89-4867-8445-3f2485dd0b45")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b9951845-726b-47cc-9e3b-ce9da64eb536")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4438e2ce-5cbb-4589-bcba-23efff13ece1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cca9c984-0f52-4d9e-9e1f-640765dd76c3")
+			(uuid "7755ec3d-dd5c-4c5b-87bd-6ee52f8f42fd")
 			(effects
 				(font
 					(size 1 1)
@@ -37062,51 +36919,12 @@
 				)
 			)
 		)
-		(property "LCSC_MF_PN" ""
+		(property "MN" "Samsung"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "78fddbea-cc55-46ec-a498-09aadab215c8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8f55731a-f89c-4b3a-ba5f-ea9a04ae6d93")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c3ed17e2-a9d3-41f3-8e50-cdcecf68e3bd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c3cdd360-3702-4a9a-8247-b07fc3892ab1")
+			(uuid "64bcfef0-4eef-4365-9dd0-a22783a521be")
 			(effects
 				(font
 					(size 1 1)
@@ -71329,6 +71147,7 @@
 				(thickness 0.127)
 				(bold yes)
 			)
+			(justify mirror)
 		)
 	)
 	(gr_text "FNWW"
@@ -75771,14 +75590,6 @@
 				(xy 62.988862 110.501096) (xy 63.001016 110.5005) (xy 72.998984 110.5005)
 			)
 		)
-	)
-	(group ""
-		(uuid "a4260530-fe10-4d10-b5d1-5184eb761ee1")
-		(members "6fe4e0cd-b658-4044-9053-05851dc66db6")
-	)
-	(group ""
-		(uuid "df929131-9dd7-4618-b358-5e924fdd2e05")
-		(members "731d810b-f711-47d7-926e-206187356dbe")
 	)
 	(embedded_fonts no)
 )
