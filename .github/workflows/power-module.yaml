@@ -41,13 +41,13 @@ jobs:
     - name: Checkout Extras
       uses: actions/checkout@v4
       with:
-        name: crgmakes/kicad-extras.git
+        repository: crgmakes/kicad-extras
         path: extras
 
     - name: Checkout CRGM Library
       uses: actions/checkout@v4
       with:
-        name: crgmakes/kicad-library.git
+        repository: crgmakes/kicad-library
         path: library
 
     - name: Update fonts
