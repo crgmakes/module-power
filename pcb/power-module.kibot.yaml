@@ -30,10 +30,12 @@ global:
   environment:
     extra_os:
       - name: KICAD_USER_LIBRARY
-        value: ~/library
+        value: ~/crgm
       - name: KICAD_USER_MODEL_DIR
-        value: ~/library/models
+        value: ~/crgm/models
       - name: field_lcsc_part
+        value: LCSC
+      - name: FIELD_LCSC_PART
         value: LCSC
 
 variants:
@@ -232,7 +234,8 @@ outputs:
     dir: doc
     options:
       libs: 
-        - library/KiCAD-base
+        - pcbdraw/KiCAD-base
+        - pcbdraw
       format: png
       margin: 10
       show_solderpaste: false

@@ -48,13 +48,13 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: crgmakes/kicad-library
-        path: library
+        path: crgm
 
     - name: Checkout PcbDraw Library
       uses: actions/checkout@v4
       with:
         repository: yaqwsx/PcbDraw-Lib
-        path: library
+        path: pcbdraw
 
     - name: Update fonts
       run: |
