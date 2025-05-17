@@ -50,6 +50,12 @@ jobs:
         repository: crgmakes/kicad-library
         path: library
 
+    - name: Checkout PcbDraw Library
+      uses: actions/checkout@v4
+      with:
+        repository: yaqwsx/PcbDraw-Lib
+        path: library
+
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/

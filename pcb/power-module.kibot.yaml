@@ -33,6 +33,8 @@ global:
         value: ~/library
       - name: KICAD_USER_MODEL_DIR
         value: ~/library/models
+      - name: field_lcsc_part
+        value: LCSC
 
 variants:
   - name: default
@@ -229,37 +231,36 @@ outputs:
     type: pcbdraw
     dir: doc
     options:
+      libs: 'library/KiCAD-base'
       format: png
+      margin: 10
       show_solderpaste: false
       show_components: all
-      warnings: all
+      warnings: visible
       
   - name: board_bottom
     comment: "Bottom layer view"
     type: pcbdraw
     dir: doc
+    extends: board_top
     options:
-      format: png
       bottom: true
-      show_solderpaste: false
-      show_components: all
-      warnings: all
 
   - name: 'step_file'
     comment: 'STEP file generation'
     type: export_3d
-    dir: doc
+    dir: doc/3d
 
-  - name: 3d
+  - name: 3d_top
     type: render_3d
-    dir: doc
+    dir: doc/3d
     options:
       no_virtual: true
       view: 'top'
       copper: '#99967F'
       board: '#C3BA9B'
       copper: '#99967F'
-      zoom: 1
+      # zoom: 1
       orthographic: true
       ray_tracing: true
       height: 1024
@@ -267,6 +268,7 @@ outputs:
 
   - name: 3d_back
     type: render_3d
-    extends: 3d
+    dir: doc/3d
+    extends: 3d_top
     options:
       view: 'bottom'
