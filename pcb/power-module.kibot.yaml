@@ -30,7 +30,9 @@ global:
   environment:
     extra_os:
       - name: KICAD_USER_LIBRARY
-        value: ~/library/
+        value: ~/library
+      - name: KICAD_USER_MODEL_DIR
+        value: ~/library/models
 
 variants:
   - name: default
