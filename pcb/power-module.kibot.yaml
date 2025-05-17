@@ -204,9 +204,11 @@ outputs:
     type: ibom
     dir: doc
     options:
-      show_fields: "Value, MN, MPN, Footprint"
+      extra_fields: 'Description,MN,MPN'
+      show_fields: 'Value,Description,MN,MPN,Footprint"
       dark_mode: true
       name_format: "index"
+      forced_name: "Aquarius Power Module"
 
   - name: 'print_sch'
     comment: "Print schematic (PDF)"
