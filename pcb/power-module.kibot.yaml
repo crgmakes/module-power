@@ -28,7 +28,7 @@ filters:
 global:
   variant: default
   environment:
-    extra_os: 
+    extra_os:
       - KICAD_USER_LIBRARY:~/library/
 
 variants:
