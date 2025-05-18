@@ -47,7 +47,7 @@ variants:
     comment: 'JLCPCB requires some rotational transforms'
     type: kibom
     variant: jlcpcb
-    pre_transform: fix_rotation
+    # pre_transform: fix_rotation
 
 # ignore_unconnected: false
 
@@ -60,7 +60,7 @@ preflight:
 
 outputs:
   - name: 'gerbers'
-    comment: "Gerbers for JLC"
+    comment: "Generate Gerbers for JLC"
     type: gerber
     dir: fab
     options:
@@ -107,49 +107,26 @@ outputs:
         suffix: GKO
 
   - name: 'drill_file'
-    comment: 'Drill file for JLC'
+    comment: 'Generate JLC Drill File'
     type: excellon
     dir: fab
     options:
       metric_units: false
       pth_and_npth_single_file: true
 
-  - name: 'pick_and_place_file'
-    comment: 'Pick and Place Location File'
-    type: position
-    dir: pnp
-    options:
-      format: CSV
+  # - name: 'pick_and_place_file'
+  #   comment: 'Pick and Place Location File'
+  #   type: position
+  #   dir: pnp
+  #   options:
+  #     format: CSV
 
   - name: 'pick_and_place_jlc'
-    comment: 'Pick and place file, JLC style'
+    comment: 'Generate JLC PnP File'
     type: position
     dir: pnp
     options:
       output: '%f_cpl_jlc.%x'
-      format: CSV
-      units: millimeters
-      separate_files_for_front_and_back: false
-      only_smd: true
-      variant: jlcpcb
-      columns:
-        - id: Ref
-          name: Designator
-        - id: PosX
-          name: "Mid X"
-        - id: PosY
-          name: "Mid Y"
-        - id: Side
-          name: Layer
-        - id: Rot
-          name: Rotation
-
-  - name: 'pick_and_place_jlc_with_connectors'
-    comment: 'Pick and place file, JLC style with connectors'
-    type: position
-    dir: pnp
-    options:
-      output: '%f_cpl_jlc_conn.%x'
       format: CSV
       units: millimeters
       separate_files_for_front_and_back: false
@@ -165,7 +142,30 @@ outputs:
         - id: Side
           name: Layer
         - id: Rot
-          name: Rotation            
+          name: Rotation
+
+  # - name: 'pick_and_place_jlc_with_connectors'
+  #   comment: 'Pick and place file, JLC style with connectors'
+  #   type: position
+  #   dir: pnp
+  #   options:
+  #     output: '%f_cpl_jlc_conn.%x'
+  #     format: CSV
+  #     units: millimeters
+  #     separate_files_for_front_and_back: false
+  #     only_smd: false
+  #     variant: jlcpcb
+  #     columns:
+  #       - id: Ref
+  #         name: Designator
+  #       - id: PosX
+  #         name: "Mid X"
+  #       - id: PosY
+  #         name: "Mid Y"
+  #       - id: Side
+  #         name: Layer
+  #       - id: Rot
+  #         name: Rotation            
 
   # - name: 'bom'
   #   comment: 'Bill of Materials'
@@ -210,7 +210,7 @@ outputs:
         quote_all: true
 
   - name: ibom
-    comment: Interactive BOM
+    comment: "Generate Interactive BOM"
     type: ibom
     dir: doc
     options:
@@ -229,7 +229,7 @@ outputs:
       output: power-module-schematic.pdf
 
   - name: board_top
-    comment: "Top layer view"
+    comment: "Top View PNG"
     type: pcbdraw
     dir: doc
     options:
@@ -244,7 +244,7 @@ outputs:
       warnings: visible
       
   - name: board_bottom
-    comment: "Bottom layer view"
+    comment: "Bottom View PNG"
     type: pcbdraw
     dir: doc
     extends: board_top
@@ -257,26 +257,41 @@ outputs:
     type: export_3d
     dir: doc/3d
 
-  - name: 3d_top
-    comment: "Render Top in 3D"
-    type: render_3d
-    dir: doc/3d
-    options:
-      no_virtual: true
-      view: 'top'
-      copper: '#99967F'
-      board: '#C3BA9B'
-      copper: '#99967F'
-      #zoom: 0.90
-      orthographic: true
-      ray_tracing: true
-      height: 1024
-      width: 1024
+  # - name: 3d_top
+  #   comment: "Render Top in 3D"
+  #   type: render_3d
+  #   dir: doc/3d
+  #   options:
+  #     no_virtual: true
+  #     view: 'top'
+  #     copper: '#99967F'
+  #     board: '#C3BA9B'
+  #     copper: '#99967F'
+  #     #zoom: 0.90
+  #     orthographic: true
+  #     ray_tracing: true
+  #     height: 1024
+  #     width: 1024
 
-  - name: 3d_back
-    comment: "Render Bottom in 3D"
-    type: render_3d
+  # - name: 3d_back
+  #   comment: "Render Bottom in 3D"
+  #   type: render_3d
+  #   dir: doc/3d
+  #   extends: 3d_top
+  #   options:
+  #     view: 'bottom'
+
+  - name: 3D_30
+    comment: "3D render 30 degrees"
+    type: blender_export
     dir: doc/3d
-    extends: 3d_top
     options:
-      view: 'bottom'
+      render_options:
+        transparent_background: true
+        samples: 20
+      point_of_view:
+        rotate_x: 30
+        rotate_z: -20
+      outputs:
+        - type: blender
+        - type: render
