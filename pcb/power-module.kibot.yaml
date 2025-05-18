@@ -209,7 +209,7 @@ outputs:
         hide_stats_info: true
         quote_all: true
 
-  - name: ibom
+  - name: 'ibom'
     comment: "Generate Interactive BOM"
     type: ibom
     dir: doc
@@ -228,10 +228,10 @@ outputs:
     options:
       output: power-module-schematic.pdf
 
-  - name: board_top
+  - name: 'board_top_image'
     comment: "Top View PNG"
     type: pcbdraw
-    dir: doc
+    dir: doc/image
     options:
       output: power-module-pcb-top.png
       libs: 
@@ -243,78 +243,65 @@ outputs:
       show_components: all
       warnings: visible
       
-  - name: board_bottom
+  - name: 'board_bottom_image'
     comment: "Bottom View PNG"
     type: pcbdraw
-    dir: doc
+    dir: doc/image
     extends: board_top
     options:
       output: power-module-pcb-bottom.png
       bottom: true
 
-  - name: 'step_file'
-    comment: 'STEP file generation'
+  - name: 'step_file_board'
+    comment: 'Generate Board STEP file'
     type: export_3d
     dir: doc/3d
+    options:
+      board_only: true
+      output: power-module-board.step
 
-  # - name: 3d_top
-  #   comment: "Render Top in 3D"
-  #   type: render_3d
-  #   dir: doc/3d
+  - name: 'step_file'
+    comment: 'Generate STEP file'
+    type: export_3d
+    dir: doc/3d
+    options:
+      output: power-module.step
+
+# Comment out 3D render to save time while debugging
+  # - name: 'render_top'
+  #   comment: "3D render top"
+  #   type: blender_export
+  #   dir: doc/render
   #   options:
-  #     no_virtual: true
-  #     view: 'top'
-  #     copper: '#99967F'
-  #     board: '#C3BA9B'
-  #     copper: '#99967F'
-  #     #zoom: 0.90
-  #     orthographic: true
-  #     ray_tracing: true
-  #     height: 1024
-  #     width: 1024
+  #     outputs:
+  #       output: power-module-3d-top.png
+  #     render_options:
+  #       samples: 10
+  #     point_of_view:
+  #       view: "top"
 
-  # - name: 3d_back
-  #   comment: "Render Bottom in 3D"
-  #   type: render_3d
-  #   dir: doc/3d
-  #   extends: 3d_top
+  # - name: 'render_bottom'
+  #   comment: "3D render bottom"
+  #   type: blender_export
+  #   dir: doc/render
   #   options:
-  #     view: 'bottom'
+  #     outputs:
+  #       output: power-module-3d-bottom.png
+  #     render_options:
+  #       samples: 10
+  #     point_of_view:
+  #       view: "bottom"
 
-  - name: 3D_Top
-    comment: "3D render from top"
-    type: blender_export
-    dir: doc/3d
-    options:
-      outputs:
-        output: power-module-3d-top.png
-      render_options:
-        samples: 10
-      point_of_view:
-        view: "top"
-
-  - name: 3D_Bottom
-    comment: "3D render from bottom"
-    type: blender_export
-    dir: doc/3d
-    options:
-      outputs:
-        output: power-module-3d-bottom.png
-      render_options:
-        samples: 10
-      point_of_view:
-        view: "bottom"
-
-  - name: 3D_30
-    comment: "3D render at 30 degrees"
-    type: blender_export
-    dir: doc/3d
-    options:
-      outputs:
-        output: power-module-3d-ortho.png
-      render_options:
-        # transparent_background: true
-        samples: 10
-      point_of_view:
-        rotate_x: 30
-        rotate_z: -20
+  # - name: 'render_ortho'
+  #   comment: "3D render at 30 degrees"
+  #   type: blender_export
+  #   dir: doc/render
+  #   options:
+  #     outputs:
+  #       output: power-module-3d-ortho.png
+  #     render_options:
+  #       # transparent_background: true
+  #       samples: 10
+  #     point_of_view:
+  #       rotate_x: 30
+  #       rotate_z: -20

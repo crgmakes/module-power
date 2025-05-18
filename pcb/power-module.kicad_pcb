@@ -100,6 +100,7 @@
 		(pad_to_mask_clearance 0.038)
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
+		(grid_origin 50 165)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f5ff)
 			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
@@ -251,7 +252,7 @@
 		(descr "JST SH series connector, SM04B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST SH horizontal")
 		(property "Reference" "J2"
-			(at 0.15 0.7 90)
+			(at 0.15 0.7 0)
 			(layer "F.SilkS")
 			(uuid "b17d9a71-7181-4e8c-9239-4069d041d356")
 			(effects
@@ -633,27 +634,15 @@
 			(uuid "e7016756-1c33-4d53-90d2-8f5e14d6f6e6")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Connector_JST.3dshapes/JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal.wrl"
-			(hide yes)
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
 		(model "${KICAD_USER_MODEL_DIR}/SM04B-SRSS-TB.step"
 			(offset
-				(xyz 0 2 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -0 -0 -180)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
@@ -31591,21 +31580,9 @@
 			(uuid "03bdd933-8bb6-4308-9980-ded535645b5d")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Converter_ACDC.3dshapes/Converter_ACDC_MeanWell-IRM-10-xx_THT.wrl"
-			(hide yes)
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
 		(model "${KICAD_USER_MODEL_DIR}/IRM-10-5.step"
 			(offset
-				(xyz -3.55 -14.2 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -32672,7 +32649,7 @@
 			(uuid "6e34e61d-bff2-4ffa-95a2-c95e36c169a6")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.stp"
+		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.step"
 			(offset
 				(xyz 0 0.02999999888 0)
 			)
@@ -36526,18 +36503,6 @@
 			(uuid "0574d81c-0286-48dc-abb7-bafbc87eea0f")
 		)
 		(embedded_fonts no)
-		(model "${KICAD9_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/TO-252-2.wrl"
-			(hide yes)
-			(offset
-				(xyz -1.5 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -0 -0 -0)
-			)
-		)
 		(model "${KICAD_USER_MODEL_DIR}/TO-252-3_6P6X6P1_DIO.step"
 			(offset
 				(xyz 0 0 0)
@@ -38014,15 +37979,15 @@
 			(uuid "7009b0a9-f732-4d9e-8532-4344feac01be")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.stp"
+		(model "${KICAD_USER_LIBRARY}/models/USB4105-GF-A-060.step"
 			(offset
-				(xyz 0 -2.6 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -90 -0 -0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
@@ -71124,17 +71089,6 @@
 					(xy 100.642359 136.50749) (xy 100.674016 136.561601) (xy 100.696612 136.583198) (xy 100.722955 136.600276)
 					(xy 100.752364 136.612308) (xy 100.784473 136.618929)
 				)
-			)
-		)
-	)
-	(gr_text "C3"
-		(at 64.6 162.8 0)
-		(layer "F.SilkS")
-		(uuid "6d599947-41c0-4505-a2bc-3bcb08777706")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
 			)
 		)
 	)

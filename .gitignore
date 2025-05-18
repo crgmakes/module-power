@@ -35,3 +35,6 @@ export-*
 
 #rendered output
 3d/Render/*
+
+#FreeCAD
+*.FCBak
