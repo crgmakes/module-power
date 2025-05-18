@@ -14,16 +14,16 @@ filters:
     include_only:
       - column: 'LCSC'
         regex: '^C\d+'
-  - name: fix_rotation
-    comment: 'Adjust rotation for JLC'
-    type: rot_footprint
-    rotations:
-      # - ["^TI_SO-", 270.0]
-      # - ["^SO-", 270.0]
-      # - ["^HTSSOP-", 270.0]
-      # - ["^SSOP-", 270.0]
-      # - ["^MSOP-", 270.0]
-      # - ["^USB_C_Receptacle_Palconn", 180.0]
+  # - name: fix_rotation
+  #   comment: 'Adjust rotation for JLC'
+  #   type: rot_footprint
+  #   rotations:
+  #     - ["^TI_SO-", 270.0]
+  #     - ["^SO-", 270.0]
+  #     - ["^HTSSOP-", 270.0]
+  #     - ["^SSOP-", 270.0]
+  #     - ["^MSOP-", 270.0]
+  #     - ["^USB_C_Receptacle_Palconn", 180.0]
 
 global:
   variant: default
