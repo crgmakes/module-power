@@ -284,6 +284,8 @@ outputs:
     dir: doc/3d
     options:
       output: power-module.step
+      download: false
+      download_lcsc: false
 
 # Comment out 3D render to save time while debugging
   # - name: 'render_top'
