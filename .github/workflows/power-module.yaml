@@ -61,8 +61,8 @@ jobs:
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
-        # ls -AlF pcbdraw
-        # ls -AlF crgm
+        ls -AlF pcbdraw
+        ls -AlF crgm
 
     - name: Update the PCBs with on default branch with git hash
       # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
@@ -72,7 +72,7 @@ jobs:
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
-        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|./crgm/models|g' pcb/power-module.kicad_pcb
+        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|~/crgm/models|g' pcb/power-module.kicad_pcb
 
     - name: Generate Export Files
       run: |
