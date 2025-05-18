@@ -37979,7 +37979,7 @@
 			(uuid "7009b0a9-f732-4d9e-8532-4344feac01be")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_USER_LIBRARY}/models/USB4105-GF-A-060.step"
+		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.step"
 			(offset
 				(xyz 0 0 0)
 			)

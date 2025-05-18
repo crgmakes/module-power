@@ -72,6 +72,7 @@ jobs:
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
+        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|./crgm/models|g' power-module.kicad_pcb
 
     - name: Generate Export Files
       run: |
