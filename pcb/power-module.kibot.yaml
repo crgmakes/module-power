@@ -242,23 +242,41 @@ outputs:
       show_solderpaste: false
       show_components: all
       warnings: visible
-      
-  - name: 'board_bottom_image'
-    comment: "Bottom View PNG"
+
+
+  - name: 'board_top_image'
+    comment: "Top View PNG"
     type: pcbdraw
     dir: doc/image
-    extends: board_top
     options:
-      output: power-module-pcb-bottom.png
       bottom: true
+      output: power-module-pcb-top.png
+      libs: 
+        - pcbdraw/KiCAD-base
+        - pcbdraw
+      format: png
+      margin: 5
+      show_solderpaste: false
+      show_components: all
+      warnings: visible
 
-  - name: 'step_file_board'
-    comment: 'Generate Board STEP file'
-    type: export_3d
-    dir: doc/3d
-    options:
-      board_only: true
-      output: power-module-board.step
+
+  # - name: 'board_bottom_image'
+  #   comment: "Bottom View PNG"
+  #   type: pcbdraw
+  #   dir: doc/image
+  #   extends: board_top
+  #   options:
+  #     output: power-module-pcb-bottom.png
+  #     bottom: true
+
+  # - name: 'step_file_board'
+  #   comment: 'Generate Board STEP file'
+  #   type: export_3d
+  #   dir: doc/3d
+  #   options:
+  #     board_only: true
+  #     output: power-module-board.step
 
   - name: 'step_file'
     comment: 'Generate STEP file'
