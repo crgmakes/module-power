@@ -244,13 +244,13 @@ outputs:
       warnings: visible
 
 
-  - name: 'board_top_image'
-    comment: "Top View PNG"
+  - name: 'board_bottom_image'
+    comment: "Bottom View PNG"
     type: pcbdraw
     dir: doc/image
     options:
       bottom: true
-      output: power-module-pcb-top.png
+      output: power-module-pcb-bottom.png
       libs: 
         - pcbdraw/KiCAD-base
         - pcbdraw
