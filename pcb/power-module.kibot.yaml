@@ -281,17 +281,39 @@ outputs:
   #   options:
   #     view: 'bottom'
 
+  - name: 3D_Top
+    comment: "3D render from top"
+    output: power-module-3d-top.png
+    type: render_3d
+    dir: doc/3d
+    options:
+      view: 'top'
+      # zoom: 4
+      # rotate_x: 3
+      # rotate_z: 3
+      # ray_tracing: true
+
+  - name: 3D_Bottom
+    comment: "3D render from bottom"
+    output: power-module-3d-bottom.png
+    type: render_3d
+    dir: doc/3d
+    options:
+      view: 'bottom'
+      # zoom: 4
+      # rotate_x: 3
+      # rotate_z: 3
+      # ray_tracing: true
+
   - name: 3D_30
-    comment: "3D render 30 degrees"
+    comment: "3D render at 30 degrees"
+    output: power-module-3d-ortho.png
     type: blender_export
     dir: doc/3d
     options:
       render_options:
-        transparent_background: true
+        # transparent_background: true
         samples: 20
       point_of_view:
         rotate_x: 30
         rotate_z: -20
-      outputs:
-        - type: blender
-        - type: render
