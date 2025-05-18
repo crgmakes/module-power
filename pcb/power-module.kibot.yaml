@@ -18,21 +18,21 @@ filters:
     comment: 'Adjust rotation for JLC'
     type: rot_footprint
     rotations:
-      - ["^TI_SO-", 270.0]
-      - ["^SO-", 270.0]
-      - ["^HTSSOP-", 270.0]
-      - ["^SSOP-", 270.0]
-      - ["^MSOP-", 270.0]
-      - ["^USB_C_Receptacle_Palconn", 180.0]
+      # - ["^TI_SO-", 270.0]
+      # - ["^SO-", 270.0]
+      # - ["^HTSSOP-", 270.0]
+      # - ["^SSOP-", 270.0]
+      # - ["^MSOP-", 270.0]
+      # - ["^USB_C_Receptacle_Palconn", 180.0]
 
 global:
   variant: default
   environment:
     extra_os:
       - name: KICAD_USER_LIBRARY
-        value: ~/crgm
+        value: "./crgm"
       - name: KICAD_USER_MODEL_DIR
-        value: ~/crgm/models
+        value: "./crgm/models"
       - name: field_lcsc_part
         value: LCSC
       - name: FIELD_LCSC_PART
