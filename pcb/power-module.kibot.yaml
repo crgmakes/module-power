@@ -283,10 +283,10 @@ outputs:
 
   - name: 3D_Top
     comment: "3D render from top"
-    output: power-module-3d-top.png
     type: render_3d
     dir: doc/3d
     options:
+      output: power-module-3d-top.png
       view: 'top'
       # zoom: 4
       # rotate_x: 3
@@ -295,10 +295,10 @@ outputs:
 
   - name: 3D_Bottom
     comment: "3D render from bottom"
-    output: power-module-3d-bottom.png
     type: render_3d
     dir: doc/3d
     options:
+      output: power-module-3d-bottom.png
       view: 'bottom'
       # zoom: 4
       # rotate_x: 3
@@ -307,10 +307,10 @@ outputs:
 
   - name: 3D_30
     comment: "3D render at 30 degrees"
-    output: power-module-3d-ortho.png
     type: blender_export
     dir: doc/3d
     options:
+      output: power-module-3d-ortho.png
       render_options:
         # transparent_background: true
         samples: 20
