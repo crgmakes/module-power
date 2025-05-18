@@ -258,6 +258,7 @@ outputs:
     dir: doc/3d
 
   - name: 3d_top
+    comment: "Render Top in 3D"
     type: render_3d
     dir: doc/3d
     options:
@@ -266,13 +267,14 @@ outputs:
       copper: '#99967F'
       board: '#C3BA9B'
       copper: '#99967F'
-      zoom: 0.90
+      #zoom: 0.90
       orthographic: true
       ray_tracing: true
       height: 1024
       width: 1024
 
   - name: 3d_back
+    comment: "Render Bottom in 3D"
     type: render_3d
     dir: doc/3d
     extends: 3d_top
