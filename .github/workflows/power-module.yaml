@@ -63,6 +63,9 @@ jobs:
         fc-cache -f -v
         ls -AlF pcbdraw/
         ls -AlF crgm/
+        ls -AlF crgm/models/
+        ls -AlF /usr/share/kicad
+        ls -AlF /usr/share/kicad/3dmodels/
 
     - name: Update the PCBs with on default branch with git hash
       # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
