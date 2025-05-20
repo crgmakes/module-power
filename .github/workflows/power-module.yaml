@@ -61,8 +61,8 @@ jobs:
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
-        ls -AlF pcbdraw
-        ls -AlF crgm
+        ls -AlF pcbdraw/
+        ls -AlF crgm/
 
     - name: Update the PCBs with on default branch with git hash
       # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch

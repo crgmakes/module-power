@@ -290,7 +290,7 @@ outputs:
       include_silkscreen: true
       include_soldermask: true
       subst_models: true
-
+      cut_vias_in_body: true
 
 # Comment out 3D render to save time while debugging
   # - name: 'render_top'
