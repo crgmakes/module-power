@@ -286,6 +286,11 @@ outputs:
       output: power-module.step
       download: false
       download_lcsc: false
+      include_pads: true
+      include_silkscreen: true
+      include_soldermask: true
+      subst_models: true
+
 
 # Comment out 3D render to save time while debugging
   # - name: 'render_top'
