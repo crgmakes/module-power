@@ -59,7 +59,7 @@ jobs:
     - name: Checkout PcbDraw Library
       uses: actions/checkout@v4
       with:
-        repository: kicad/libraries/kicad-packages3D
+        repository: https://gitlab.com/kicad/libraries/kicad-packages3D.git
         path: kicad-lib-3d
 
     - name: Update fonts
