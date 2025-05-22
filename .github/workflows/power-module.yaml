@@ -56,19 +56,17 @@ jobs:
         repository: yaqwsx/PcbDraw-Lib
         path: pcbdraw
 
-    - name: Checkout PcbDraw Library
-      uses: actions/checkout@v4
-      with:
-        repository: https://gitlab.com/kicad/libraries/kicad-packages3D.git
-        path: kicad-lib-3d
+    - name: Get 3d packages
+      run: |
+        git clone https://gitlab.com/kicad/libraries/kicad-packages3D.git
+        mkdir -p /usr/share/kicad/3dmodel
+        mv ./kicad-lib-3d/* /usr/share/kicad/3dmodels
 
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
-        mkdir -p /usr/share/kicad/3dmodel
-        mv ./kicad-lib-3d/* /usr/share/kicad/3dmodels
         ls -AlF pcbdraw/
         # ls -AlF crgm/
         ls -AlF crgm/models/
