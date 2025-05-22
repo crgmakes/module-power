@@ -31,7 +31,7 @@ jobs:
         apt update
         apt -y install git git-lfs zip librsvg2-bin imagemagick
         git lfs install
-        mkdir -p /usr/share/fonts/kibot
+        #mkdir -p /usr/share/fonts/kibot
 
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -56,15 +56,23 @@ jobs:
         repository: yaqwsx/PcbDraw-Lib
         path: pcbdraw
 
+    - name: Checkout PcbDraw Library
+      uses: actions/checkout@v4
+      with:
+        repository: kicad/libraries/kicad-packages3D
+        path: kicad-lib-3d
+
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
+        mkdir -p /usr/share/kicad/3dmodel
+        mv ./kicad-lib-3d/* /usr/share/kicad/3dmodels
         ls -AlF pcbdraw/
-        ls -AlF crgm/
+        # ls -AlF crgm/
         ls -AlF crgm/models/
-        ls -AlF /usr/share/kicad
+        # ls -AlF /usr/share/kicad
         ls -AlF /usr/share/kicad/3dmodels/
 
     - name: Update the PCBs with on default branch with git hash
