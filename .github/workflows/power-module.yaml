@@ -60,7 +60,7 @@ jobs:
       run: |
         git clone https://gitlab.com/kicad/libraries/kicad-packages3D.git
         mkdir -p /usr/share/kicad/3dmodel
-        mv ./kicad-lib-3d/* /usr/share/kicad/3dmodels
+        mv ./kicad-packages3D/* /usr/share/kicad/3dmodels
 
     - name: Update fonts
       run: |
