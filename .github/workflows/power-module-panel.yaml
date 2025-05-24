@@ -61,7 +61,7 @@ jobs:
         cd pcb/panel
         rm -rf production/
         kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
-        kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
+        #kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
         #cd production
         #zip -r aquarius-power-module-panel.zip production/** 
         # zip -r -j ../aquarius-power-module-panel-pcb.zip pcb
@@ -70,13 +70,10 @@ jobs:
         # zip -r -j ../aquarius-power-module-panel-bom.zip bom
         # zip -r -j ../aquarius-power-module-panel-doc.zip doc
 
-    - name: Install zip
+    - name: Zip output files
       uses: montudor/action-zip@v1
-
-    - name: Zip output
-      run: |
-        cd pcb/panel
-        zip -r power-module-panel.zip production
+      with:
+        args: zip -r pcb/panel/power-module-panel.zip pcb/panel/production
 
     # - name: Zip Export Files
     #   run: |
