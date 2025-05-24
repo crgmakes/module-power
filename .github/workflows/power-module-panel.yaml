@@ -24,6 +24,11 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad9_auto:latest
       
     steps:
+    - name: Install required apps
+      run: |
+        apt update
+        apt -y install git zip
+
     - name: Checkout Power Module Repository
       uses: actions/checkout@v4
       # with:
@@ -70,26 +75,13 @@ jobs:
         # zip -r -j ../aquarius-power-module-panel-bom.zip bom
         # zip -r -j ../aquarius-power-module-panel-doc.zip doc
 
-    - name: Zip output files
-      uses: montudor/action-zip@v1
-      working-directory: pcb/panel/production
-      with:
-        args: zip -r power-module-panel.zip *
-
-    # - name: Zip Export Files
-    #   run: |
-    #     cd pcb/panel
-    #     echo `pwd`'/production'
-    #     ls -AlF production
-    #     cd production
-    #     # echo `pwd`'/pcb'
-    #     # ls -AlF pcb
-    #     # echo `pwd`'/fab'
-    #     # ls -AlF fab
-    #     # echo `pwd`'/doc'
-    #     # ls -AlF doc
-    #     #zip -r -j aquarius-power-module-panel-flat.zip production/
-    #     zip -r aquarius-power-module-panel.zip *
+    - name: Zip Export Files
+      run: |
+        cd pcb/panel
+        echo `pwd`'/production'
+        ls -AlF production
+        cd production
+        zip -r aquarius-power-module-panel.zip *
 
 # Upload
     - name: Upload Files as Artifacts
