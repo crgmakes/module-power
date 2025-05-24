@@ -70,20 +70,29 @@ jobs:
         # zip -r -j ../aquarius-power-module-panel-bom.zip bom
         # zip -r -j ../aquarius-power-module-panel-doc.zip doc
 
-    - name: Zip Export Files
+    - name: Install zip
+      uses: montudor/action-zip@v1
+
+    - name: Zip output
+      uses: montudor/action-zip@v1
       run: |
         cd pcb/panel
-        echo `pwd`'/production'
-        ls -AlF production
-        cd production
-        # echo `pwd`'/pcb'
-        # ls -AlF pcb
-        # echo `pwd`'/fab'
-        # ls -AlF fab
-        # echo `pwd`'/doc'
-        # ls -AlF doc
-        #zip -r -j aquarius-power-module-panel-flat.zip production/
-        zip -r aquarius-power-module-panel.zip *
+        zip -r power-module-panel.zip production
+
+    # - name: Zip Export Files
+    #   run: |
+    #     cd pcb/panel
+    #     echo `pwd`'/production'
+    #     ls -AlF production
+    #     cd production
+    #     # echo `pwd`'/pcb'
+    #     # ls -AlF pcb
+    #     # echo `pwd`'/fab'
+    #     # ls -AlF fab
+    #     # echo `pwd`'/doc'
+    #     # ls -AlF doc
+    #     #zip -r -j aquarius-power-module-panel-flat.zip production/
+    #     zip -r aquarius-power-module-panel.zip *
 
 # Upload
     - name: Upload Files as Artifacts
