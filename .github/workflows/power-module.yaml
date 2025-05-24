@@ -29,14 +29,15 @@ jobs:
     - name: Update system repositories, Install Required Libraries and Initialize git-lfs
       run: |
         apt update
-        apt -y install git git-lfs zip librsvg2-bin imagemagick
-        git lfs install
+        # apt -y install git git-lfs zip librsvg2-bin imagemagick
+        apt -y install git zip librsvg2-bin imagemagick
+        # git lfs install
         #mkdir -p /usr/share/fonts/kibot
 
     - name: Checkout Power Module Repository
       uses: actions/checkout@v4
-      with:
-        lfs: true
+      # with:
+      #   lfs: true
 
     - name: Checkout Extras
       uses: actions/checkout@v4
@@ -49,6 +50,8 @@ jobs:
       with:
         repository: crgmakes/kicad-library
         path: crgm
+
+    # *** comment out to save time during testing ***
 
     - name: Checkout PcbDraw Library
       uses: actions/checkout@v4
@@ -67,14 +70,13 @@ jobs:
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
-        ls -AlF pcbdraw/
+        # ls -AlF pcbdraw/
         # ls -AlF crgm/
-        ls -AlF crgm/models/
+        # ls -AlF crgm/models/
         # ls -AlF /usr/share/kicad
-        ls -AlF /usr/share/kicad/3dmodels/
+        # ls -AlF /usr/share/kicad/3dmodels/
 
-    - name: Update the PCBs with on default branch with git hash
-      # if: github.event_name == 'release' || steps.extract_branch.outputs.branch == env.main_branch
+    - name: Update the PCB with git hash
       run: |
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"    
@@ -89,11 +91,17 @@ jobs:
         rm -rf production/
         kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
         cd production
-        zip -r -j ../aquarius-power-module-fab.zip fab
-        zip -r -j ../aquarius-power-module-pnp.zip pnp
-        cd doc
-        zip -r ../../aquarius-power-module-doc.zip .
-    #   zip -r -j aquarius-power-module-pcb.zip production/
+        # zip -r -j ../aquarius-power-module-gerber.zip gerber
+        # zip -r -j ../aquarius-power-module-pnp.zip pnp
+        # zip -r ../aquarius-power-module-doc.zip doc
+        # zip -r -j aquarius-power-module-pcb.zip production/
+        zip -r ../aquarius-power-module-pcb.zip * 
+
+    - name: Generate Release Files
+      if: github.event_name == 'release'
+      run: |
+        cd pcb
+        cp aquarius-power-module-pcb.zip aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
 
 # Upload
     - name: Upload Files as Artifacts

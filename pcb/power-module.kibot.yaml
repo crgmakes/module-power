@@ -59,12 +59,11 @@ preflight:
   check_zone_fills: true
 
 outputs:
-  - name: 'gerbers'
+  - name: 'jlc_gerbers'
     comment: "Generate Gerbers for JLC"
     type: gerber
-    dir: fab
+    dir: gerber
     options:
-      # generic layer options
       exclude_edge_layer: true
       exclude_pads_from_silkscreen: false
       use_aux_axis_as_origin: false
@@ -73,8 +72,6 @@ outputs:
       plot_footprint_values: true
       force_plot_invisible_refs_vals: false
       tent_vias: true
-
-      # gerber options
       line_width: 0.1
       subtract_mask_from_silk: false
       use_protel_extensions: false
@@ -82,7 +79,6 @@ outputs:
       create_gerber_job_file: true
       use_gerber_x2_attributes: false
       use_gerber_net_attributes: false
-
       output: '%f.%i'
 
     layers:
@@ -106,22 +102,15 @@ outputs:
       - layer: Edge.Cuts
         suffix: GKO
 
-  - name: 'drill_file'
+  - name: 'jlc_drill_file'
     comment: 'Generate JLC Drill File'
     type: excellon
-    dir: fab
+    dir: gerber
     options:
       metric_units: false
       pth_and_npth_single_file: true
 
-  # - name: 'pick_and_place_file'
-  #   comment: 'Pick and Place Location File'
-  #   type: position
-  #   dir: pnp
-  #   options:
-  #     format: CSV
-
-  - name: 'pick_and_place_jlc'
+  - name: 'jlc_pnp'
     comment: 'Generate JLC PnP File'
     type: position
     dir: pnp
@@ -144,56 +133,12 @@ outputs:
         - id: Rot
           name: Rotation
 
-  # - name: 'pick_and_place_jlc_with_connectors'
-  #   comment: 'Pick and place file, JLC style with connectors'
-  #   type: position
-  #   dir: pnp
-  #   options:
-  #     output: '%f_cpl_jlc_conn.%x'
-  #     format: CSV
-  #     units: millimeters
-  #     separate_files_for_front_and_back: false
-  #     only_smd: false
-  #     variant: jlcpcb
-  #     columns:
-  #       - id: Ref
-  #         name: Designator
-  #       - id: PosX
-  #         name: "Mid X"
-  #       - id: PosY
-  #         name: "Mid Y"
-  #       - id: Side
-  #         name: Layer
-  #       - id: Rot
-  #         name: Rotation            
-
-  # - name: 'bom'
-  #   comment: 'Bill of Materials'
-  #   type: bom
-  #   dir: bom
-  #   options:
-  #     csv:
-  #       hide_pcb_info: true
-  #       hide_stats_info: true
-  #     format: CSV
-
-  # - name: 'html_bom'
-  #   comment: 'HTML BOM'
-  #   type: bom
-  #   dir: bom
-  #   options:
-  #     html:
-  #       datasheet_as_link: Datasheet
-  #       digikey_link: Digikey
-  #       title: 'Power Module Bill of Materials'
-
   - name: 'bom_jlc'
     comment: "BOM for JLC"
     type: bom
-    dir: bom
+    dir: pnp
     options:
       output: '%f_bom_jlc.%x'
-        # exclude_filter: only_jlc_parts
       ref_separator: ','
       columns:
         - field: Value
@@ -216,7 +161,6 @@ outputs:
     options:
       show_fields: 'Value,Description,MN,MPN,Footprint'
       extra_fields: 'Description,MN,MPN'
-      # extra_fields: 'LCSC,Mouser,Digikey,Note'
       dark_mode: true
       name_format: "index"
       forced_name: "Aquarius Power Module"
@@ -257,23 +201,7 @@ outputs:
       show_components: all
       warnings: visible
 
-
-  # - name: 'board_bottom_image'
-  #   comment: "Bottom View PNG"
-  #   type: pcbdraw
-  #   dir: doc/image
-  #   extends: board_top
-  #   options:
-  #     output: power-module-pcb-bottom.png
-  #     bottom: true
-
-  # - name: 'step_file_board'
-  #   comment: 'Generate Board STEP file'
-  #   type: export_3d
-  #   dir: doc/3d
-  #   options:
-  #     board_only: true
-  #     output: power-module-board.step
+  # Comment out 3D render to save time while debugging
 
   - name: 'step_file'
     comment: 'Generate STEP file'
@@ -289,41 +217,40 @@ outputs:
       subst_models: true
       cut_vias_in_body: true
 
-# Comment out 3D render to save time while debugging
-  # - name: 'render_top'
-  #   comment: "3D render top"
-  #   type: blender_export
-  #   dir: doc/render
-  #   options:
-  #     outputs:
-  #       output: power-module-3d-top.png
-  #     render_options:
-  #       samples: 10
-  #     point_of_view:
-  #       view: "top"
+  - name: 'render_top'
+    comment: "3D render top"
+    type: blender_export
+    dir: doc/render
+    options:
+      outputs:
+        output: power-module-3d-top.png
+      render_options:
+        samples: 10
+      point_of_view:
+        view: "top"
 
-  # - name: 'render_bottom'
-  #   comment: "3D render bottom"
-  #   type: blender_export
-  #   dir: doc/render
-  #   options:
-  #     outputs:
-  #       output: power-module-3d-bottom.png
-  #     render_options:
-  #       samples: 10
-  #     point_of_view:
-  #       view: "bottom"
+  - name: 'render_bottom'
+    comment: "3D render bottom"
+    type: blender_export
+    dir: doc/render
+    options:
+      outputs:
+        output: power-module-3d-bottom.png
+      render_options:
+        samples: 10
+      point_of_view:
+        view: "bottom"
 
-  # - name: 'render_ortho'
-  #   comment: "3D render at 30 degrees"
-  #   type: blender_export
-  #   dir: doc/render
-  #   options:
-  #     outputs:
-  #       output: power-module-3d-ortho.png
-  #     render_options:
-  #       # transparent_background: true
-  #       samples: 10
-  #     point_of_view:
-  #       rotate_x: 30
-  #       rotate_z: -20
+  - name: 'render_ortho'
+    comment: "3D render at 30 degrees"
+    type: blender_export
+    dir: doc/render
+    options:
+      outputs:
+        output: power-module-3d-ortho.png
+      render_options:
+        # transparent_background: true
+        samples: 10
+      point_of_view:
+        rotate_x: 30
+        rotate_z: -20
