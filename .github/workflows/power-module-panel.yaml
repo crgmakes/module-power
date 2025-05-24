@@ -73,14 +73,15 @@ jobs:
     - name: Zip Export Files
       run: |
         cd pcb/panel
+        echo `pwd`'/production'
         ls -AlF production
         cd production
-        echo `pwd`'/pcb'
-        ls -AlF pcb
-        echo `pwd`'/fab'
-        ls -AlF fab
-        echo `pwd`'/doc'
-        ls -AlF doc
+        # echo `pwd`'/pcb'
+        # ls -AlF pcb
+        # echo `pwd`'/fab'
+        # ls -AlF fab
+        # echo `pwd`'/doc'
+        # ls -AlF doc
         #zip -r -j aquarius-power-module-panel-flat.zip production/
         zip -r aquarius-power-module-panel.zip *
 
