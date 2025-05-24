@@ -53,6 +53,7 @@ jobs:
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
+        echo `pwd`
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
 
