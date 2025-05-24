@@ -72,8 +72,9 @@ jobs:
 
     - name: Zip output files
       uses: montudor/action-zip@v1
+      working-directory: pcb/panel/production
       with:
-        args: zip -r pcb/panel/power-module-panel.zip pcb/panel/production
+        args: zip -r power-module-panel.zip *
 
     # - name: Zip Export Files
     #   run: |
