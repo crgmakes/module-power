@@ -66,16 +66,18 @@ jobs:
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
         sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
 
-    - name: Generate Export Files
+    - name: Generate Panel
       run: |
-        echo "Making panel - "`pwd`
         cd pcb/panel
         rm -rf production
         kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
-        echo "Exporting - "`pwd`
-        cd ../../fabkit/Fabrication-Toolkit
-        python3 -m plugins.cli -p ../../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
         #kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
+
+    - name: Generate Production Files
+      run: |
+        echo "Making panel - "`pwd`
+        cd fabkit/Fabrication-Toolkit
+        python3 -m plugins.cli -p ../../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
 
     - name: Zip Export Files
       run: |
