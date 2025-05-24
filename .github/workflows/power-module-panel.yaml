@@ -77,7 +77,9 @@ jobs:
       run: |
         cd fabkit
         ls -AlF
+        ls -AlF ..
         python3 -m plugins.cli -p ../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
+        ls -AlF
 
     - name: Zip Export Files
       run: |
