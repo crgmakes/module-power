@@ -21,7 +21,7 @@ jobs:
   export-panel:
     name: Export Panel
     runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+    container: ghcr.io/inti-cmnb/kicad9_auto:latest
       
     steps:
     - name: Checkout Power Module Repository
@@ -74,8 +74,15 @@ jobs:
       run: |
         cd pcb/panel
         ls -AlF production
-        zip -r -j aquarius-power-module-panel-flat.zip production/
-        zip -r aquarius-power-module-panel.zip production/
+        cd production
+        echo `pwd`'/pcb'
+        ls -AlF pcb
+        echo `pwd`'/fab'
+        ls -AlF fab
+        echo `pwd`'/doc'
+        ls -AlF doc
+        #zip -r -j aquarius-power-module-panel-flat.zip production/
+        zip -r aquarius-power-module-panel.zip *
 
 # Upload
     - name: Upload Files as Artifacts
