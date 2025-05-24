@@ -23,21 +23,20 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
       
     steps:
-    - name: Generate Short SHA Environment Variable
-      run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+    - name: "Where are we?"
+      run: echo "pwd=`pwd`"
+
+    # - name: Generate Short SHA Environment Variable
+    #   run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       
     - name: Update system repositories, Install Required Libraries and Initialize git-lfs
       run: |
         apt update
-        # apt -y install git git-lfs zip librsvg2-bin imagemagick
-        apt -y install git zip librsvg2-bin imagemagick
-        # git lfs install
-        #mkdir -p /usr/share/fonts/kibot
+        # apt -y install git zip librsvg2-bin imagemagick
+        apt -y install git zip
 
     - name: Checkout Power Module Repository
       uses: actions/checkout@v4
-      # with:
-      #   lfs: true
 
     - name: Checkout Extras
       uses: actions/checkout@v4
@@ -53,68 +52,68 @@ jobs:
 
     # *** comment out to save time during testing ***
 
-    - name: Checkout PcbDraw Library
-      uses: actions/checkout@v4
-      with:
-        repository: yaqwsx/PcbDraw-Lib
-        path: pcbdraw
+    # - name: Checkout PcbDraw Library
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: yaqwsx/PcbDraw-Lib
+    #     path: pcbdraw
 
-    - name: Get 3d packages
-      run: |
-        git clone https://gitlab.com/kicad/libraries/kicad-packages3D.git
-        mkdir -p /usr/share/kicad/3dmodels
-        mv ./kicad-packages3D/* /usr/share/kicad/3dmodels
+    # - name: Get 3d packages
+    #   run: |
+    #     git clone https://gitlab.com/kicad/libraries/kicad-packages3D.git
+    #     mkdir -p /usr/share/kicad/3dmodels
+    #     mv ./kicad-packages3D/* /usr/share/kicad/3dmodels
 
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
         cp extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
-        # ls -AlF pcbdraw/
-        # ls -AlF crgm/
-        # ls -AlF crgm/models/
-        # ls -AlF /usr/share/kicad
-        # ls -AlF /usr/share/kicad/3dmodels/
 
-    - name: Update the PCB with git hash
+    - name: "What do we have?"
       run: |
-        export COMMIT=$(git rev-parse --short HEAD)
-        echo "COMMIT = ${COMMIT}"    
-        echo "ref: ${{ github.ref }}"
-        echo "default: ${{ env.default }}"
-        sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
-        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
+        echo "pwd=`pwd`"
+        ls -AlF
 
-    - name: Generate Export Files
-      run: |
-        cd pcb
-        rm -rf production/
-        kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
-        cd production
-        # zip -r -j ../aquarius-power-module-gerber.zip gerber
-        # zip -r -j ../aquarius-power-module-pnp.zip pnp
-        # zip -r ../aquarius-power-module-doc.zip doc
-        # zip -r -j aquarius-power-module-pcb.zip production/
-        zip -r ../aquarius-power-module-pcb.zip * 
+#     - name: Update the PCB with git hash
+#       run: |
+#         export COMMIT=$(git rev-parse --short HEAD)
+#         echo "COMMIT = ${COMMIT}"    
+#         echo "ref: ${{ github.ref }}"
+#         echo "default: ${{ env.default }}"
+#         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
+#         sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
 
-    - name: Generate Release Files
-      if: github.event_name == 'release'
-      run: |
-        cd pcb
-        cp aquarius-power-module-pcb.zip aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
+#     - name: Generate Export Files
+#       run: |
+#         cd pcb
+#         rm -rf production/
+#         kibot -c power-module.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
+#         cd production
+#         # zip -r -j ../aquarius-power-module-gerber.zip gerber
+#         # zip -r -j ../aquarius-power-module-pnp.zip pnp
+#         # zip -r ../aquarius-power-module-doc.zip doc
+#         # zip -r -j aquarius-power-module-pcb.zip production/
+#         zip -r ../aquarius-power-module-pcb.zip * 
 
-# Upload
-    - name: Upload Files as Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: aquarius-power-module-pcb
-        path: pcb/*.zip
-        if-no-files-found: error
-        retention-days: 60
+#     - name: Generate Release Files
+#       if: github.event_name == 'release'
+#       run: |
+#         cd pcb
+#         cp aquarius-power-module-pcb.zip aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
 
-    - name: Upload Artifacts to Release
-      uses: softprops/action-gh-release@v1
-      if: github.event_name == 'release'
-      with:
-        files: |
-          pcb/aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
+# # Upload
+#     - name: Upload Files as Artifacts
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: aquarius-power-module-pcb
+#         path: pcb/*.zip
+#         if-no-files-found: error
+#         retention-days: 60
+
+#     - name: Upload Artifacts to Release
+#       uses: softprops/action-gh-release@v1
+#       if: github.event_name == 'release'
+#       with:
+#         files: |
+#           pcb/aquarius-power-module-pcb-${{ github.event.release.tag_name }}.zip
