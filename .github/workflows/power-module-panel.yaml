@@ -75,10 +75,9 @@ jobs:
 
     - name: Generate Production Files
       run: |
-        echo "Making panel - "`pwd`
+        cd fabkit
         ls -AlF
-        cd fabkit/Fabrication-Toolkit
-        python3 -m plugins.cli -p ../../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
+        python3 -m plugins.cli -p ../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
 
     - name: Zip Export Files
       run: |
