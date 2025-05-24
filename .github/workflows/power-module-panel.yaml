@@ -48,6 +48,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: bennymeg/Fabrication-Toolkit
+        path: fabkit
 
     - name: Update fonts
       run: |
@@ -69,9 +70,8 @@ jobs:
         cd pcb/panel
         rm -rf production
         kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
-        cd
-        cd Fabrication-Toolkit
-        python3 -m plugins.cli -p ../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
+        cd ../../fabkit/Fabrication-Toolkit
+        python3 -m plugins.cli -p ../../module-power/pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
         #kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
 
     - name: Zip Export Files
