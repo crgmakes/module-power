@@ -74,8 +74,8 @@ jobs:
       run: |
         cd pcb/panel
         ls -AlF production
-        zip -r -j aquarius-power-module-panel-flat.zip production
-        zip -r aquarius-power-module-panel.zip production
+        zip -r -j aquarius-power-module-panel-flat.zip production/
+        zip -r aquarius-power-module-panel.zip production/
 
 # Upload
     - name: Upload Files as Artifacts
