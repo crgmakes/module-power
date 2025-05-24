@@ -23,9 +23,6 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
       
     steps:
-    - name: "Where are we?"
-      run: echo "pwd=`pwd`"
-
     # - name: Generate Short SHA Environment Variable
     #   run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       
@@ -37,6 +34,9 @@ jobs:
 
     - name: Checkout Power Module Repository
       uses: actions/checkout@v4
+      with:
+        repository: crgmakes/module-power
+        path: power
 
     - name: Checkout Extras
       uses: actions/checkout@v4
@@ -72,7 +72,7 @@ jobs:
 
     - name: "What do we have?"
       run: |
-        echo "pwd=`pwd`"
+        echo "Root Directory"
         ls -AlF
 
 #     - name: Update the PCB with git hash
