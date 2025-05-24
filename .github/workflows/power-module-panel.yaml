@@ -26,8 +26,8 @@ jobs:
     steps:
     - name: Checkout Power Module Repository
       uses: actions/checkout@v4
-      with:
-        lfs: true
+      # with:
+      #   lfs: true
 
     - name: Checkout Extras
       uses: actions/checkout@v4
