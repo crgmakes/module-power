@@ -74,7 +74,6 @@ jobs:
       uses: montudor/action-zip@v1
 
     - name: Zip output
-      uses: montudor/action-zip@v1
       run: |
         cd pcb/panel
         zip -r power-module-panel.zip production
