@@ -1,0 +1,86 @@
+# Aquarius - Automation Simplified
+#
+# @brief Git script for exporting PCB data for Power Module
+# @date 5/23/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
+name: Aquarius Power Module Panel CI
+on:
+  # push:
+  #   paths:
+  #     - 'pcb/power-module.kicad_sch'
+  #     - 'pcb/power-module.kicad_pcb'
+  #     - 'pcb/power-module.kibot.yaml'
+  #     - '.github/workflows/power-module.yaml'
+  workflow_dispatch:
+  workflow_run:
+      workflows: ['Aquarius Power Module CI']
+      types: [completed]
+    
+jobs:
+  export-panel:
+    name: Export Panel
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+      
+    steps:
+    - name: Checkout Power Module Repository
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Checkout Extras
+      uses: actions/checkout@v4
+      with:
+        repository: crgmakes/kicad-extras
+        path: extras
+
+    - name: Checkout CRGM Library
+      uses: actions/checkout@v4
+      with:
+        repository: crgmakes/kicad-library
+        path: crgm
+
+    - name: Update fonts
+      run: |
+        mkdir -p /usr/share/fonts/
+        cp extras/fonts/* /usr/share/fonts/
+        fc-cache -f -v
+
+    - name: Update the PCBs with on default branch with git hash
+      run: |
+        export COMMIT=$(git rev-parse --short HEAD)
+        echo "COMMIT = ${COMMIT}"    
+        echo "ref: ${{ github.ref }}"
+        echo "default: ${{ env.default }}"
+        sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
+        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
+
+    - name: Generate Export Files
+      run: |
+        cd pcb/panel
+        rm -rf production/
+        kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
+        kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
+        cd production
+        zip -r -j ../aquarius-power-module-panel-pcb.zip pcb
+        zip -r -j ../aquarius-power-module-panel-fab.zip fab
+        zip -r -j ../aquarius-power-module-panel-pnp.zip pnp
+        zip -r -j ../aquarius-power-module-panel-bom.zip bom
+        zip -r -j ../aquarius-power-module-panel-doc.zip doc
+
+# Upload
+    - name: Upload Files as Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: aquarius-power-module-panel
+        path: pcb/panel/*.zip
+        if-no-files-found: error
+        retention-days: 60
+
+    - name: Upload Artifacts to Release
+      uses: softprops/action-gh-release@v1
+      if: github.event_name == 'release'
+      with:
+        files: |
+          pcb/panel/aquarius-power-module-panel-${{ github.event.release.tag_name }}.zip

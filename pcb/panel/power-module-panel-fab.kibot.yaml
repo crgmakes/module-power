@@ -1,0 +1,161 @@
+# Aquarius - Automation Simplified
+#
+# @brief Script for exporting PCB data for Power Module
+# @date 5/16/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
+kibot:
+  version: 1
+
+global:
+  variant: default
+  output: '%f-panel-2x2.%x'
+  environment:
+    extra_os:
+      - name: KICAD_USER_LIBRARY
+        value: "./crgm"
+      - name: KICAD_USER_MODEL_DIR
+        value: "./crgm/models"
+      - name: field_lcsc_part
+        value: LCSC
+      - name: FIELD_LCSC_PART
+        value: LCSC
+
+variants:
+  - name: default
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: default
+  - name: jlcpcb
+    comment: 'JLCPCB requires some rotational transforms'
+    type: kibom
+    variant: jlcpcb
+    # pre_transform: fix_rotation
+
+# ignore_unconnected: false
+
+outputs:
+  - name: 'gerbers'
+    comment: "Generate Gerbers for JLC"
+    type: gerber
+    dir: fab
+    options:
+      # generic layer options
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: false
+      use_aux_axis_as_origin: false
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+
+      # gerber options
+      line_width: 0.1
+      subtract_mask_from_silk: false
+      use_protel_extensions: false
+      gerber_precision: 4.6
+      create_gerber_job_file: true
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+      output: '%f.%i'
+
+    layers:
+      # When Moving to Four Layer, Set G2L and G3L as the suffixes
+      - layer: F.Cu
+        suffix: GTL
+      - layer: In1.Cu
+        suffix: G2L
+      - layer: In2.Cu
+        suffix: G3L
+      - layer: B.Cu
+        suffix: GBL
+      - layer: F.SilkS
+        suffix: GTO
+      - layer: B.SilkS
+        suffix: GBO
+      - layer: F.Mask
+        suffix: GTS
+      - layer: B.Mask
+        suffix: GBS
+      - layer: Edge.Cuts
+        suffix: GKO
+
+  - name: 'drill_file'
+    comment: 'Generate JLC Drill File'
+    type: excellon
+    dir: fab
+    options:
+      output: '%f-panel-2x2.%x'
+      metric_units: false
+      pth_and_npth_single_file: true
+
+  - name: 'pick_and_place_jlc'
+    comment: 'Generate JLC PnP File'
+    type: position
+    dir: pnp
+    options:
+      output: '%f-jlc-cpl.%x'
+      format: CSV
+      units: millimeters
+      separate_files_for_front_and_back: false
+      only_smd: false
+      variant: jlcpcb
+      columns:
+        - id: Ref
+          name: Designator
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Side
+          name: Layer
+        - id: Rot
+          name: Rotation
+
+  - name: 'bom_jlc'
+    comment: "BOM for JLC"
+    type: bom
+    dir: bom
+    options:
+      output: '%f-jlc-bom.%x'
+        # exclude_filter: only_jlc_parts
+      ref_separator: ','
+      columns:
+        - field: Value
+          name: Comment
+        - field: References
+          name: Designator
+        - field: Footprint
+          name: Footprint
+        - field: LCSC
+          name: 'LCSC'
+      csv:
+        hide_pcb_info: true
+        hide_stats_info: true
+        quote_all: true
+
+  - name: 'board_top_image'
+    comment: "Top View Panel PNG"
+    type: pcbdraw
+    dir: doc/image
+    options:
+      output: '%f-panel-2x2-top.%x'
+      format: png
+      margin: 5
+      show_solderpaste: false
+      show_components: none
+      #warnings: visible
+
+  - name: 'board_bottom_image'
+    comment: "Bottom View Panel PNG"
+    type: pcbdraw
+    dir: doc/image
+    options:
+      bottom: true
+      output: '%f-panel-2x2-bottom.%x'
+      format: png
+      margin: 5
+      show_solderpaste: false
+      show_components: none
+      #warnings: visible

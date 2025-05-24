@@ -33,7 +33,7 @@ jobs:
         git lfs install
         #mkdir -p /usr/share/fonts/kibot
 
-    - name: Checkout Repository
+    - name: Checkout Power Module Repository
       uses: actions/checkout@v4
       with:
         lfs: true

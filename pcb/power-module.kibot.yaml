@@ -235,14 +235,12 @@ outputs:
     options:
       output: power-module-pcb-top.png
       libs: 
-        - pcbdraw/KiCAD-base
-        - pcbdraw
+        - "../pcbdraw/PcbDraw-Lib/KiCAD-base/"
       format: png
       margin: 5
       show_solderpaste: false
       show_components: all
       warnings: visible
-
 
   - name: 'board_bottom_image'
     comment: "Bottom View PNG"
@@ -252,8 +250,7 @@ outputs:
       bottom: true
       output: power-module-pcb-bottom.png
       libs: 
-        - pcbdraw/KiCAD-base
-        - pcbdraw
+        - "../pcbdraw/PcbDraw-Lib/KiCAD-base/"
       format: png
       margin: 5
       show_solderpaste: false

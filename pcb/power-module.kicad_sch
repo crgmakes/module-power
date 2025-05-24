@@ -33635,6 +33635,15 @@
 				(hide yes)
 			)
 		)
+		(property "FT Rotation Offset" "180"
+			(at 135.89 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f63e40a2-f3e2-41fc-81b7-74d4162281d2")
 		)
@@ -35059,7 +35068,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+		(property "Footprint" "CRGM Passive:LED_0603_1608Metric"
 			(at 163.83 186.69 0)
 			(effects
 				(font
@@ -35846,6 +35855,15 @@
 			)
 		)
 		(property "LCSC" "C151391"
+			(at 31.75 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "FT Position Offset" "-3.3,0"
 			(at 31.75 120.65 0)
 			(effects
 				(font
@@ -36756,7 +36774,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+		(property "Footprint" "CRGM Passive:LED_0603_1608Metric"
 			(at 147.32 186.69 0)
 			(effects
 				(font
@@ -37229,6 +37247,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "FT Rotation Offset" "-90"
+			(at 49.53 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

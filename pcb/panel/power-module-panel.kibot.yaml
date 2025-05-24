@@ -1,0 +1,69 @@
+# Aquarius - Automation Simplified
+#
+# @brief Script for exporting PCB data for Power Module
+# @date 5/16/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
+kibot:
+  version: 1
+
+filters:
+  - name: only_jlc_parts
+    comment: 'Only parts with JLC (LCSC) code'
+    type: generic
+    include_only:
+      - column: 'LCSC'
+        regex: '^C\d+'
+  # - name: fix_rotation
+  #   comment: 'Adjust rotation for JLC'
+  #   type: rot_footprint
+  #   rotations:
+  #     - ["^TI_SO-", 270.0]
+  #     - ["^SO-", 270.0]
+  #     - ["^HTSSOP-", 270.0]
+  #     - ["^SSOP-", 270.0]
+  #     - ["^MSOP-", 270.0]
+  #     - ["^USB_C_Receptacle_Palconn", 180.0]
+
+global:
+  variant: default
+  output: '%f-panel-2x2.%x'
+  environment:
+    extra_os:
+      - name: KICAD_USER_LIBRARY
+        value: "./crgm"
+      - name: KICAD_USER_MODEL_DIR
+        value: "./crgm/models"
+      - name: field_lcsc_part
+        value: LCSC
+      - name: FIELD_LCSC_PART
+        value: LCSC
+
+variants:
+  - name: default
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: default
+  - name: jlcpcb
+    comment: 'JLCPCB requires some rotational transforms'
+    type: kibom
+    variant: jlcpcb
+    # pre_transform: fix_rotation
+
+# ignore_unconnected: false
+
+preflight:
+  erc: false
+  update_xml: true
+  # Disable DRC for now while GPereira updates these items.
+  drc: false
+  check_zone_fills: true
+
+outputs:
+  - name: "panelize"
+    comment: "Create power module panel"
+    type: panelize
+    options:
+      units: mm
+      configs:
+        "panel_2x2-vcut-offset.json"
