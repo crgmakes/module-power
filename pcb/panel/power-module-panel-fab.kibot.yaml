@@ -140,7 +140,7 @@ outputs:
     type: pcbdraw
     dir: doc/image
     options:
-      output: '%f-panel-2x2-top.%x'
+      output: '%f-top.%x'
       format: png
       margin: 5
       show_solderpaste: false
@@ -153,7 +153,7 @@ outputs:
     dir: doc/image
     options:
       bottom: true
-      output: '%f-panel-2x2-bottom.%x'
+      output: '%f-bottom.%x'
       format: png
       margin: 5
       show_solderpaste: false
