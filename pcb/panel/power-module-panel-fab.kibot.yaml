@@ -135,27 +135,27 @@ outputs:
         hide_stats_info: true
         quote_all: true
 
-  # - name: 'board_top_image'
-  #   comment: "Top View Panel PNG"
-  #   type: pcbdraw
-  #   dir: doc/image
-  #   options:
-  #     output: '%f-top.%x'
-  #     format: png
-  #     margin: 5
-  #     show_solderpaste: false
-  #     show_components: none
-  #     #warnings: visible
+  - name: 'board_top_image'
+    comment: "Top View Panel PNG"
+    type: pcbdraw
+    dir: doc/image
+    options:
+      output: '%f-top.%x'
+      format: png
+      margin: 5
+      show_solderpaste: false
+      show_components: none
+      #warnings: visible
 
-  # - name: 'board_bottom_image'
-  #   comment: "Bottom View Panel PNG"
-  #   type: pcbdraw
-  #   dir: doc/image
-  #   options:
-  #     bottom: true
-  #     output: '%f-bottom.%x'
-  #     format: png
-  #     margin: 5
-  #     show_solderpaste: false
-  #     show_components: none
-  #     #warnings: visible
+  - name: 'board_bottom_image'
+    comment: "Bottom View Panel PNG"
+    type: pcbdraw
+    dir: doc/image
+    options:
+      bottom: true
+      output: '%f-bottom.%x'
+      format: png
+      margin: 5
+      show_solderpaste: false
+      show_components: none
+      #warnings: visible
