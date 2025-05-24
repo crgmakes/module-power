@@ -63,7 +63,7 @@ jobs:
         kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
         kibot -c power-module-panel-fab.kibot.yaml -e ../power-module.kicad_sch -b production/pcb/power-module-panel-2x2.kicad_pcb -d production
         #cd production
-        zip -r aquarius-power-modelue-panel.zip production/* 
+        zip -r aquarius-power-modelue-panel.zip production/** 
         # zip -r -j ../aquarius-power-module-panel-pcb.zip pcb
         # zip -r -j ../aquarius-power-module-panel-fab.zip fab
         # zip -r -j ../aquarius-power-module-panel-pnp.zip pnp
