@@ -1,0 +1,59 @@
+# Aquarius - Automation Simplified
+#
+# @brief Git script for testing
+# @date 5/25/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
+
+name: Aquarius-Test
+on:
+  workflow_dispatch:
+    
+jobs:
+  test-clone:
+    name: Test Cloning
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+      
+    steps:
+    # - name: Update system
+    #   run: |
+    #     apt update
+    #     apt -y install git zip
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # - name: Checkout Extras
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: crgmakes/kicad-extras
+    #     path: extras
+
+    # - name: Checkout CRGM Library
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: crgmakes/kicad-library
+    #     path: crgm
+
+    # - name: Checkout PcbDraw Library
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: yaqwsx/PcbDraw-Lib
+    #     path: pcbdraw
+
+    # - name: Checkout Fab Kit Library
+    #   uses: actions/checkout@v4
+    #   with:
+    #     repository: bennymeg/Fabrication-Toolkit
+    #     path: fabkit
+
+    - name: List Directory
+      run: |
+        echo "Directory Content"
+        ls -AlF
+        pwd
+        # mkdir -p /usr/share/fonts/
+        # cp extras/fonts/* /usr/share/fonts/
+        # fc-cache -f -v
+
