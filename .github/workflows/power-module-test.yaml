@@ -18,9 +18,10 @@ jobs:
     steps:
     - name: List Directory
       run: |
-        echo "Directory Contents"
+        echo "Directory '$(pwd)' Contents"
         ls -AlF
-        pwd
+        mkdir working
+        ls -AlF
 
     # - name: Update system
     #   run: |
@@ -30,13 +31,13 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
       with:
-        path: module-power
+        path: working/module-power
 
     - name: Checkout Extras
       uses: actions/checkout@v4
       with:
         repository: crgmakes/kicad-extras
-        # path: extras
+        path: working/kicad-extras
 
     # - name: Checkout CRGM Library
     #   uses: actions/checkout@v4
@@ -58,10 +59,8 @@ jobs:
 
     - name: List Directory
       run: |
-        echo "Directory Contents"
+        echo "Directory '$(pwd)' Contents"
         ls -AlF
         pwd
-        # mkdir -p /usr/share/fonts/
-        # cp extras/fonts/* /usr/share/fonts/
-        # fc-cache -f -v
+        ls -AlF working
 
