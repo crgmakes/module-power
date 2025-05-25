@@ -39,28 +39,43 @@ jobs:
         repository: crgmakes/kicad-extras
         path: working/kicad-extras
 
-    # - name: Checkout CRGM Library
-    #   uses: actions/checkout@v4
-    #   with:
-    #     repository: crgmakes/kicad-library
-    #     path: crgm
+    - name: Checkout CRGM Library
+      uses: actions/checkout@v4
+      with:
+        repository: crgmakes/kicad-library
+        path: working/kicad-library
 
-    # - name: Checkout PcbDraw Library
-    #   uses: actions/checkout@v4
-    #   with:
-    #     repository: yaqwsx/PcbDraw-Lib
-    #     path: pcbdraw
+    - name: Checkout PcbDraw Library
+      uses: actions/checkout@v4
+      with:
+        repository: yaqwsx/PcbDraw-Lib
+        path: working/PcbDraw-Lib
 
-    # - name: Checkout Fab Kit Library
-    #   uses: actions/checkout@v4
-    #   with:
-    #     repository: bennymeg/Fabrication-Toolkit
-    #     path: fabkit
+    - name: Checkout Fab Kit Library
+      uses: actions/checkout@v4
+      with:
+        repository: bennymeg/Fabrication-Toolkit
+        path: working/Fabrication-Toolkit
 
     - name: List Directory
       run: |
+        cd working
         echo "Directory '$(pwd)' Contents"
         ls -AlF
-        pwd
-        ls -AlF working
+
+  test-previous-clone:
+      name: Test Previous Clone
+      runs-on: ubuntu-latest
+      container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+      needs: test-clone
+
+      steps:
+      - name: List Directory
+        run: |
+          cd working
+          echo "Directory '$(pwd)' Contents"
+          ls -AlF
+
+
+
 
