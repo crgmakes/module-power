@@ -28,11 +28,11 @@ global:
       - name: FIELD_LCSC_PART
         value: LCSC
 
-# variants:
-#   - name: default
-#     comment: 'Just a place holder for the rotation filter'
-#     type: kibom
-#     variant: default
+variants:
+  - name: default
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: default
 #   - name: jlcpcb
 #     comment: 'JLCPCB requires some rotational transforms'
 #     type: kibom
