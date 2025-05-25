@@ -1,0 +1,44 @@
+# Aquarius - Automation Simplified
+#
+# @brief Script for exporting PCB data for Power Module upon checkin
+# @date 5/24/25
+# @author cyberreefguru
+# (c) CRG Makes 2025
+kibot:
+  version: 1
+
+filters:
+  - name: only_jlc_parts
+    comment: 'Only parts with JLC (LCSC) code'
+    type: generic
+    include_only:
+      - column: 'LCSC'
+        regex: '^C\d+'
+
+global:
+  variant: default
+  environment:
+    extra_os:
+      - name: field_lcsc_part
+        value: LCSC
+      - name: FIELD_LCSC_PART
+        value: LCSC
+
+variants:
+  - name: default
+    comment: 'Just a place holder for the rotation filter'
+    type: kibom
+    variant: default
+  - name: jlcpcb
+    comment: 'JLCPCB requires some rotational transforms'
+    type: kibom
+    variant: jlcpcb
+
+import:
+  - ~/kicad-extras/Elecrow.kibot.yaml
+
+preflight:
+  erc: false
+  update_xml: true
+  drc: false
+  check_zone_fills: true
