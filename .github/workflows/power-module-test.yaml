@@ -72,9 +72,11 @@ jobs:
       steps:
       - name: List Directory
         run: |
-          cd working
           echo "Directory '$(pwd)' Contents"
           ls -AlF
+          # cd working
+          # echo "Directory '$(pwd)' Contents"
+          # ls -AlF
 
 
 
