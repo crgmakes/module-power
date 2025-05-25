@@ -48,6 +48,12 @@ jobs:
         repository: yaqwsx/PcbDraw-Lib
         path: pcbdraw
 
+    - name: Checkout Fab Kit Library
+      uses: actions/checkout@v4
+      with:
+        repository: bennymeg/Fabrication-Toolkit
+        path: fabkit
+
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
@@ -63,16 +69,40 @@ jobs:
         sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
         sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
 
-    - name: Generate Export Files
+    # - name: Generate Export Files
+    #   run: |
+    #     cd pcb
+    #     rm -rf production/
+    #     kibot -c power-module-checkin.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
+    #     cd production
+    #     zip -r -j power-module-gerber.zip gerber/*
+    #     rm -rf gerber/*
+    #     mv power-module-gerber.zip gerber
+    #     zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
+
+    - name: Generate Production Files (Gerber, BOM, Position)
+      run: |
+        cd fabkit
+        python3 -m plugins.cli -p ../pcb/power-module.kicad_pcb -u1 -t -f -e
+
+    - name: Zip Export Files
       run: |
         cd pcb
-        rm -rf production/
-        kibot -c power-module-checkin.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
+        echo `pwd`'/production'
+        ls -AlF production
         cd production
-        zip -r -j power-module-gerber.zip gerber/*
-        rm -rf gerber/*
-        mv power-module-gerber.zip gerber
-        zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
+        mkdir pnp
+        mkdir gerber
+        mkdir pcb
+        mkdir netlist
+        rm -rf backups
+        mv bom.csv pnp/power-module-jlc-bom.csv
+        mv positions.csv pnp/power-module-jlc-cpl.csv
+        mv designators.csv pnp/power-module-jlc-desig.csv
+        mv power-module.zip gerber
+        cp ../power-module.* pcb
+        mv netlist.ipc netlist/power-module-netlist.ipc
+        zip -r ../aquarius-power-module.zip *
 
     - name: Upload Files as Artifacts
       uses: actions/upload-artifact@v4
