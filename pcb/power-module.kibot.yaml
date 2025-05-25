@@ -33,11 +33,11 @@ variants:
     comment: 'Just a place holder for the rotation filter'
     type: kibom
     variant: default
-#   - name: jlcpcb
-#     comment: 'JLCPCB requires some rotational transforms'
-#     type: kibom
-#     variant: jlcpcb
-#     # pre_transform: fix_rotation
+  - name: jlcpcb
+    comment: 'JLCPCB requires some rotational transforms'
+    type: kibom
+    variant: jlcpcb
+    # pre_transform: fix_rotation
 
 # ignore_unconnected: false
 
