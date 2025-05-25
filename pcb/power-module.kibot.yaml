@@ -14,16 +14,6 @@ filters:
     include_only:
       - column: 'LCSC'
         regex: '^C\d+'
-  # - name: fix_rotation
-  #   comment: 'Adjust rotation for JLC'
-  #   type: rot_footprint
-  #   rotations:
-  #     - ["^TI_SO-", 270.0]
-  #     - ["^SO-", 270.0]
-  #     - ["^HTSSOP-", 270.0]
-  #     - ["^SSOP-", 270.0]
-  #     - ["^MSOP-", 270.0]
-  #     - ["^USB_C_Receptacle_Palconn", 180.0]
 
 global:
   variant: default
@@ -38,23 +28,22 @@ global:
       - name: FIELD_LCSC_PART
         value: LCSC
 
-variants:
-  - name: default
-    comment: 'Just a place holder for the rotation filter'
-    type: kibom
-    variant: default
-  - name: jlcpcb
-    comment: 'JLCPCB requires some rotational transforms'
-    type: kibom
-    variant: jlcpcb
-    # pre_transform: fix_rotation
+# variants:
+#   - name: default
+#     comment: 'Just a place holder for the rotation filter'
+#     type: kibom
+#     variant: default
+#   - name: jlcpcb
+#     comment: 'JLCPCB requires some rotational transforms'
+#     type: kibom
+#     variant: jlcpcb
+#     # pre_transform: fix_rotation
 
 # ignore_unconnected: false
 
 preflight:
   erc: false
   update_xml: true
-  # Disable DRC for now while GPereira updates these items.
   drc: false
   check_zone_fills: true
 
@@ -168,7 +157,7 @@ outputs:
   - name: 'print_sch'
     comment: "Print schematic (PDF)"
     type: pdf_sch_print
-    dir: doc
+    dir: doc/schematic
     options:
       output: power-module-schematic.pdf
 
@@ -200,8 +189,6 @@ outputs:
       show_solderpaste: false
       show_components: all
       warnings: visible
-
-  # Comment out 3D render to save time while debugging
 
   - name: 'step_file'
     comment: 'Generate STEP file'
