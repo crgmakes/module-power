@@ -77,7 +77,7 @@ jobs:
         rm -rf production/
         kibot -c power-module-release.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
         cd production
-        zip -r -f power-module-gerber.zip gerber/*
+        zip -r -j power-module-gerber.zip gerber/*
         zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
 
     - name: Generate Panel PCB
@@ -124,7 +124,7 @@ jobs:
         name: aquarius-power-module-pcb
         path: pcb/*.zip
         if-no-files-found: error
-        retention-days: 60
+        retention-days: 30
 
     - name: Upload Files as Artifacts
       uses: actions/upload-artifact@v4
@@ -132,7 +132,7 @@ jobs:
         name: aquarius-power-module-panel
         path: pcb/panel/*.zip
         if-no-files-found: error
-        retention-days: 60
+        retention-days: 30
 
     - name: Upload Artifacts to Release
       uses: softprops/action-gh-release@v1
