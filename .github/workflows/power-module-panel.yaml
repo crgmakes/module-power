@@ -66,12 +66,12 @@ jobs:
       run: |
         cd pcb/panel
         rm -rf production
-        kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d production/pcb
+        kibot -c power-module-panel.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d .
 
     - name: Generate Production Files (Gerber, BOM, Position)
       run: |
         cd fabkit
-        python3 -m plugins.cli -p ../pcb/panel/production/pcb/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
+        python3 -m plugins.cli -p ../pcb/panel/power-module-panel-2x2.kicad_pcb -u1 -t -f -e
 
     - name: Zip Export Files
       run: |
@@ -81,7 +81,7 @@ jobs:
         cd production
         mkdir pnp
         mkdir gerber
-        # mkdir pcb
+        mkdir pcb
         mkdir netlist
         mv bom.csv pnp/power-module-panel-2x2-jlc-bom.csv
         mv positions.csv pnp/power-module-panel-2x2-jlc-cpl.csv
