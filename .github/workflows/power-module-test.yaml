@@ -30,13 +30,13 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
       with:
-        path: power-module-git
+        path: module-power
 
-    # - name: Checkout Extras
-    #   uses: actions/checkout@v4
-    #   with:
-    #     repository: crgmakes/kicad-extras
-    #     path: extras
+    - name: Checkout Extras
+      uses: actions/checkout@v4
+      with:
+        repository: crgmakes/kicad-extras
+        # path: extras
 
     # - name: Checkout CRGM Library
     #   uses: actions/checkout@v4
