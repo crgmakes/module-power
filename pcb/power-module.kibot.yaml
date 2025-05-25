@@ -104,7 +104,7 @@ outputs:
     type: position
     dir: pnp
     options:
-      output: '%f_cpl_jlc.%x'
+      output: '%f-jlc-cpl.%x'
       format: CSV
       units: millimeters
       separate_files_for_front_and_back: false
@@ -127,7 +127,7 @@ outputs:
     type: bom
     dir: pnp
     options:
-      output: '%f_bom_jlc.%x'
+      output: '%f-jlc-bom.%x'
       ref_separator: ','
       columns:
         - field: Value
