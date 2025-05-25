@@ -16,6 +16,12 @@ jobs:
     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
       
     steps:
+    - name: List Directory
+      run: |
+        echo "Directory Contents"
+        ls -AlF
+        pwd
+
     # - name: Update system
     #   run: |
     #     apt update
@@ -23,6 +29,8 @@ jobs:
 
     - name: Checkout Repository
       uses: actions/checkout@v4
+      with:
+        path: power-module-git
 
     # - name: Checkout Extras
     #   uses: actions/checkout@v4
@@ -50,7 +58,7 @@ jobs:
 
     - name: List Directory
       run: |
-        echo "Directory Content"
+        echo "Directory Contents"
         ls -AlF
         pwd
         # mkdir -p /usr/share/fonts/
