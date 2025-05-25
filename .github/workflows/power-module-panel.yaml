@@ -81,7 +81,7 @@ jobs:
         cd production
         mkdir pnp
         mkdir gerber
-        mkdir pcb
+        # mkdir pcb
         mkdir netlist
         mv bom.csv pnp/power-module-panel-2x2-jlc-bom.csv
         mv positions.csv pnp/power-module-panel-2x2-jlc-cpl.csv
