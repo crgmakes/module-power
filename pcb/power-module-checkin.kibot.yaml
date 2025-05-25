@@ -1,15 +1,22 @@
 # Aquarius - Automation Simplified
 #
-# @brief Script for exporting PCB data for Power Module
-# @date 5/16/25
+# @brief Script for exporting PCB data for Power Module upon checkin
+# @date 5/24/25
 # @author cyberreefguru
 # (c) CRG Makes 2025
 kibot:
   version: 1
 
+filters:
+  - name: only_jlc_parts
+    comment: 'Only parts with JLC (LCSC) code'
+    type: generic
+    include_only:
+      - column: 'LCSC'
+        regex: '^C\d+'
+
 global:
   variant: default
-  output: '%f-panel-2x2.%x'
   environment:
     extra_os:
       - name: KICAD_USER_LIBRARY
@@ -30,17 +37,19 @@ variants:
     comment: 'JLCPCB requires some rotational transforms'
     type: kibom
     variant: jlcpcb
-    # pre_transform: fix_rotation
 
-# ignore_unconnected: false
+preflight:
+  erc: false
+  update_xml: true
+  drc: false
+  check_zone_fills: true
 
 outputs:
-  - name: 'gerbers'
+  - name: 'jlc_gerbers'
     comment: "Generate Gerbers for JLC"
     type: gerber
-    dir: fab
+    dir: gerber
     options:
-      # generic layer options
       exclude_edge_layer: true
       exclude_pads_from_silkscreen: false
       use_aux_axis_as_origin: false
@@ -49,8 +58,6 @@ outputs:
       plot_footprint_values: true
       force_plot_invisible_refs_vals: false
       tent_vias: true
-
-      # gerber options
       line_width: 0.1
       subtract_mask_from_silk: false
       use_protel_extensions: false
@@ -81,16 +88,15 @@ outputs:
       - layer: Edge.Cuts
         suffix: GKO
 
-  - name: 'drill_file'
+  - name: 'jlc_drill_file'
     comment: 'Generate JLC Drill File'
     type: excellon
-    dir: fab
+    dir: gerber
     options:
-      output: '%f-panel-2x2.%x'
       metric_units: false
       pth_and_npth_single_file: true
 
-  - name: 'pick_and_place_jlc'
+  - name: 'jlc_pnp'
     comment: 'Generate JLC PnP File'
     type: position
     dir: pnp
@@ -116,10 +122,9 @@ outputs:
   - name: 'bom_jlc'
     comment: "BOM for JLC"
     type: bom
-    dir: bom
+    dir: pnp
     options:
       output: '%f-jlc-bom.%x'
-        # exclude_filter: only_jlc_parts
       ref_separator: ','
       columns:
         - field: Value
@@ -135,27 +140,49 @@ outputs:
         hide_stats_info: true
         quote_all: true
 
+  - name: 'ibom'
+    comment: "Generate Interactive BOM"
+    type: ibom
+    dir: doc
+    options:
+      show_fields: 'Value,Description,MN,MPN,Footprint'
+      extra_fields: 'Description,MN,MPN'
+      dark_mode: true
+      name_format: "index"
+      forced_name: "Aquarius Power Module"
+
+  - name: 'print_sch'
+    comment: "Print schematic (PDF)"
+    type: pdf_sch_print
+    dir: doc/schematic
+    options:
+      output: power-module-schematic.pdf
+
   - name: 'board_top_image'
-    comment: "Top View Panel PNG"
+    comment: "Top View PNG"
     type: pcbdraw
     dir: doc/image
     options:
-      output: '%f-top.%x'
+      output: power-module-pcb-top.png
+      libs: 
+        - "../pcbdraw/PcbDraw-Lib/KiCAD-base/"
       format: png
       margin: 5
       show_solderpaste: false
-      show_components: none
-      #warnings: visible
+      show_components: all
+      warnings: visible
 
   - name: 'board_bottom_image'
-    comment: "Bottom View Panel PNG"
+    comment: "Bottom View PNG"
     type: pcbdraw
     dir: doc/image
     options:
       bottom: true
-      output: '%f-bottom.%x'
+      output: power-module-pcb-bottom.png
+      libs: 
+        - "../pcbdraw/PcbDraw-Lib/KiCAD-base/"
       format: png
       margin: 5
       show_solderpaste: false
-      show_components: none
-      #warnings: visible
+      show_components: all
+      warnings: visible
