@@ -77,7 +77,8 @@ jobs:
         rm -rf production/
         kibot -c power-module-release.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
         cd production
-        zip -r ../aquarius-power-module-pcb.zip * ../power-module.*
+        zip -r -f power-module-gerber.zip gerber/*
+        zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
 
     - name: Generate Panel PCB
       run: |
