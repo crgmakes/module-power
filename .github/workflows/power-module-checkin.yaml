@@ -98,9 +98,10 @@ jobs:
         rm -rf backups
         mv bom.csv pnp/power-module-jlc-bom.csv
         mv positions.csv pnp/power-module-jlc-cpl.csv
-        mv designators.csv pnp/power-module-jlc-desig.csv
+        mv designators.csv pnp/power-module-jlc-designators.csv
         mv power-module.zip gerber
-        cp ../power-module.* pcb
+        cp ../power-module.kicad_sch pcb
+        cp ../power-module.kicad_pcb pcb
         mv netlist.ipc netlist/power-module-netlist.ipc
         zip -r ../aquarius-power-module.zip *
 
