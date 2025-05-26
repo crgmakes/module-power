@@ -74,8 +74,8 @@ jobs:
 
     - name: Generate Fabrication Files
       run: |
-        cd ${HOME}/working/module-power/
-        kibot -c ${HOME}/kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d ../production compress_jlc_all_4layer
+        cd working/module-power/
+        kibot -c ../../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d ../production compress_jlc_all_4layer
 
     # - name: Generate Export Files
     #   run: |
