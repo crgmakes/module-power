@@ -11,7 +11,7 @@ on:
     paths:
       - 'pcb/power-module.kicad_sch'
       - 'pcb/power-module.kicad_pcb'
-      - 'pcb/power-module-checkin.kibot.yaml'
+      # - 'pcb/power-module-checkin.kibot.yaml'
       - '.github/workflows/power-module-checkin.yaml'
   workflow_dispatch:
     
@@ -27,37 +27,39 @@ jobs:
         apt update
         apt -y install git zip
 
-    - name: Checkout Power Module Repository
+    - name: Checkout Repository
       uses: actions/checkout@v4
+      with:
+        path: working/module-power
 
     - name: Checkout Extras
       uses: actions/checkout@v4
       with:
         repository: crgmakes/kicad-extras
-        path: extras
+        path: working/kicad-extras
 
     - name: Checkout CRGM Library
       uses: actions/checkout@v4
       with:
         repository: crgmakes/kicad-library
-        path: crgm
+        path: working/kicad-library
 
     - name: Checkout PcbDraw Library
       uses: actions/checkout@v4
       with:
         repository: yaqwsx/PcbDraw-Lib
-        path: pcbdraw
+        path: working/PcbDraw-Lib
 
     - name: Checkout Fab Kit Library
       uses: actions/checkout@v4
       with:
         repository: bennymeg/Fabrication-Toolkit
-        path: fabkit
+        path: working/Fabrication-Toolkit
 
     - name: Update fonts
       run: |
         mkdir -p /usr/share/fonts/
-        cp extras/fonts/* /usr/share/fonts/
+        cp working/kicad-extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
 
     - name: Update the PCB with git hash
@@ -66,8 +68,14 @@ jobs:
         echo "COMMIT = ${COMMIT}"    
         echo "ref: ${{ github.ref }}"
         echo "default: ${{ env.default }}"
-        sed -i "s!<<hash>>!${COMMIT}!" pcb/power-module.kicad_pcb
-        sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
+        cd working/module-power/pcb
+        sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
+        #sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
+
+    - name: Generate Fabrication Files
+      run: |
+        cd ${HOME}/working/module-power/
+        kibot -c ${HOME}/kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d ../production compress_jlc_all_4layer
 
     # - name: Generate Export Files
     #   run: |
@@ -80,35 +88,35 @@ jobs:
     #     mv power-module-gerber.zip gerber
     #     zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
 
-    - name: Generate Production Files (Gerber, BOM, Position)
-      run: |
-        cd fabkit
-        python3 -m plugins.cli -p ../pcb/power-module.kicad_pcb -u1 -t -f -e
+    # - name: Generate Production Files (Gerber, BOM, Position)
+    #   run: |
+    #     cd fabkit
+    #     python3 -m plugins.cli -p ../pcb/power-module.kicad_pcb -u1 -t -f -e
 
-    - name: Zip Export Files
-      run: |
-        cd pcb
-        echo `pwd`'/production'
-        ls -AlF production
-        cd production
-        mkdir pnp
-        mkdir gerber
-        mkdir pcb
-        mkdir netlist
-        rm -rf backups
-        mv bom.csv pnp/power-module-jlc-bom.csv
-        mv positions.csv pnp/power-module-jlc-cpl.csv
-        mv designators.csv pnp/power-module-jlc-designators.csv
-        mv power-module.zip gerber
-        cp ../power-module.kicad_sch pcb
-        cp ../power-module.kicad_pcb pcb
-        mv netlist.ipc netlist/power-module-netlist.ipc
-        zip -r ../aquarius-power-module.zip *
+    # - name: Zip Export Files
+    #   run: |
+    #     cd pcb
+    #     echo `pwd`'/production'
+    #     ls -AlF production
+    #     cd production
+    #     mkdir pnp
+    #     mkdir gerber
+    #     mkdir pcb
+    #     mkdir netlist
+    #     rm -rf backups
+    #     mv bom.csv pnp/power-module-jlc-bom.csv
+    #     mv positions.csv pnp/power-module-jlc-cpl.csv
+    #     mv designators.csv pnp/power-module-jlc-designators.csv
+    #     mv power-module.zip gerber
+    #     cp ../power-module.kicad_sch pcb
+    #     cp ../power-module.kicad_pcb pcb
+    #     mv netlist.ipc netlist/power-module-netlist.ipc
+    #     zip -r ../aquarius-power-module.zip *
 
     - name: Upload Files as Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: aquarius-power-module-pcb
-        path: pcb/*.zip
+        path: ${HOME}/working/module-power/*.zip
         if-no-files-found: error
         retention-days: 30
