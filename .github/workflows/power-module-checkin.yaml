@@ -100,7 +100,7 @@ jobs:
       with:
         name: aquarius-power-module-pcb
         path: |
-          working/module-power/production/power-module-fab.zip
+          working/module-power/production/power-module.zip
         if-no-files-found: warn
         retention-days: 30
 
@@ -110,6 +110,6 @@ jobs:
       with:
         name: aquarius-power-module-panel
         path: |
-          working/module-power/pcb/panel/power-module-panel-fab.zip
+          working/module-power/pcb/panel/power-module-panel.zip
         if-no-files-found: warn
         retention-days: 30
