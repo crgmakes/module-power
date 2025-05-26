@@ -107,6 +107,6 @@ jobs:
       with:
         name: aquarius-power-module-panel
         path: |
-          working/module-power/pcb/panel/power-module-fab.zip
+          working/module-power/pcb/panel/power-module-panel-fab.zip
         if-no-files-found: warn
         retention-days: 30
