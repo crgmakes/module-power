@@ -74,11 +74,12 @@ jobs:
         cd pcb
         sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
 
-    - name: Generate Fabrication Files
+    - name: Generate Single PCB Fabrication Files
       run: |
         echo "Working Directory: ${{ github.workspace }}"
         cd working/module-power/
-        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
+        # kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
+        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
         # production now contains power-module.zip
         # ls -AlF production
         # ls -AlF ${{ github.workspace }}/working/module-power/production
@@ -110,7 +111,8 @@ jobs:
       with:
         name: aquarius-power-module-pcb
         path: |
-          working/module-power/production/power-module.zip
+          working/module-power/production/power-module-release.zip
+          # working/module-power/production/power-module.zip
         if-no-files-found: warn
         retention-days: 30
 

@@ -69,20 +69,20 @@ jobs:
         echo "Directory '$(pwd)' Contents"
         ls -AlF
 
-  test-previous-clone:
-      name: Test Previous Clone
-      runs-on: ubuntu-latest
-      container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
-      needs: test-clone
+  # test-previous-clone:
+  #     name: Test Previous Clone
+  #     runs-on: ubuntu-latest
+  #     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+  #     needs: test-clone
 
-      steps:
-      - name: List Directory
-        run: |
-          echo "Directory '$(pwd)' Contents"
-          ls -AlF
-          # cd working
-          # echo "Directory '$(pwd)' Contents"
-          # ls -AlF
+  #     steps:
+  #     - name: List Directory
+  #       run: |
+  #         echo "Directory '$(pwd)' Contents"
+  #         ls -AlF
+  #         # cd working
+  #         # echo "Directory '$(pwd)' Contents"
+  #         # ls -AlF
 
 
 
