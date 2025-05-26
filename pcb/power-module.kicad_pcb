@@ -32702,7 +32702,7 @@
 			(uuid "6e34e61d-bff2-4ffa-95a2-c95e36c169a6")
 		)
 		(embedded_fonts no)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/LM66200DRLR.stp"
+		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.stp"
 			(offset
 				(xyz 0 0.02999999888 0)
 			)
@@ -36558,7 +36558,7 @@
 			(net 1 "+3.3V")
 			(pinfunction "VO")
 			(pintype "power_out")
-			(uuid "37538035-71e2-4103-b10b-ab9dd4d5fc44")
+			(uuid "775e0cba-69f0-465d-91d2-335ec42e380b")
 		)
 		(pad "2" smd roundrect
 			(at 0 0 90)
@@ -36568,7 +36568,7 @@
 			(net 1 "+3.3V")
 			(pinfunction "VO")
 			(pintype "power_out")
-			(uuid "37538035-71e2-4103-b10b-ab9dd4d5fc44")
+			(uuid "1c2bf80a-8e47-4afd-b00a-a6cb28764213")
 		)
 		(pad "2" smd roundrect
 			(at 1.75 -1.75 90)
@@ -36578,7 +36578,7 @@
 			(net 1 "+3.3V")
 			(pinfunction "VO")
 			(pintype "power_out")
-			(uuid "37538035-71e2-4103-b10b-ab9dd4d5fc44")
+			(uuid "e0477603-60ca-4f97-92b3-ab2368439819")
 		)
 		(pad "2" smd roundrect
 			(at 1.75 1.75 90)
@@ -36588,7 +36588,7 @@
 			(net 1 "+3.3V")
 			(pinfunction "VO")
 			(pintype "power_out")
-			(uuid "37538035-71e2-4103-b10b-ab9dd4d5fc44")
+			(uuid "f647c8a6-5d38-4207-91b5-710653cf6b35")
 		)
 		(pad "3" smd roundrect
 			(at -6.85 2.3 90)
@@ -38050,7 +38050,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "34a22a3f-f7e4-4d01-9388-41c0242d14dd")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 -4.18)
@@ -38062,7 +38062,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "2a1fb52d-22c1-4b82-a332-5900b92a7fcd")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 0)
@@ -38074,10 +38074,10 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "4ce00312-60da-4125-bfee-4d6425fcc3d8")
 		)
 		(embedded_fonts no)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/USB4105-GF-A-060.stp"
+		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.stp"
 			(offset
 				(xyz 0 -2.6 0)
 			)

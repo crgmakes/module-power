@@ -7,38 +7,29 @@
 kibot:
   version: 1
 
-filters:
-  - name: only_jlc_parts
-    comment: 'Only parts with JLC (LCSC) code'
-    type: generic
-    include_only:
-      - column: 'LCSC'
-        regex: '^C\d+'
-
-global:
-  variant: default
-  environment:
-    extra_os:
-      - name: field_lcsc_part
-        value: LCSC
-      - name: FIELD_LCSC_PART
-        value: LCSC
-
-variants:
-  - name: default
-    comment: 'Just a place holder for the rotation filter'
-    type: kibom
-    variant: default
-  - name: jlcpcb
-    comment: 'JLCPCB requires some rotational transforms'
-    type: kibom
-    variant: jlcpcb
-
 import:
-  - ~/kicad-extras/kibot/crgm.kibot.yaml
+  - file: ~/kicad-extras/kibot/crgm.kibot.yaml
 
-preflight:
-  erc: false
-  update_xml: true
-  drc: false
-  check_zone_fills: true
+# global:
+#   variant: default
+#   environment:
+#     extra_os:
+#       - name: field_lcsc_part
+#         value: LCSC
+#       - name: FIELD_LCSC_PART
+#         value: LCSC
+
+# variants:
+#   - name: default
+#     type: kibom
+#     variant: default
+# #   - name: jlcpcb
+# #     comment: 'JLCPCB requires some rotational transforms'
+# #     type: kibom
+# #     variant: jlcpcb
+
+# preflight:
+#   erc: false
+#   update_xml: true
+#   drc: false
+#   check_zone_fills: true
