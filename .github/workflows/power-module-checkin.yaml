@@ -72,14 +72,14 @@ jobs:
         echo "default: ${{ env.default }}"
         cd pcb
         sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
-        #sed -i.bak 's|\${KICAD_USER_MODEL_DIR}|../crgm/models|g' pcb/power-module.kicad_pcb
 
     - name: Generate Fabrication Files
       run: |
         echo "Working Directory: ${{ github.workspace }}"
         cd working/module-power/
-        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production compress_jlc_4layer
-        ls -AlF production
+        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
+        # production now contains power-module.zip
+        # ls -AlF production
         # ls -AlF ${{ github.workspace }}/working/module-power/production
 
     - name: Generate Panel PCB
@@ -87,10 +87,13 @@ jobs:
       run: |
         cd working/module-power/pcb/panel
         rm -rf production
-        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d pcb panelize
-        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production compress_jlc_4layer_panel
-        mv production/power-module-panel-fab.zip .
-        zip -u power-module-panel-fab.zip pcb/**
+        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d pcb create_panel
+        # pcb now contains power-module-panel.kicad_pcb
+        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production create_panel_archive_4layer
+        # produciton now contains power-module-panel.zip
+        mv production/power-module-panel.zip .
+        # add panelized PCB to archive
+        zip -u power-module-panel.zip pcb/**
 
     - name: Upload PCB Artifacts
       uses: actions/upload-artifact@v4
