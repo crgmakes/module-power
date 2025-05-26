@@ -77,8 +77,8 @@ jobs:
       run: |
         echo "Working Directory: ${{ github.workspace }}"
         cd working/module-power/
-        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d ../production compress_jlc_4layer
-        ls -AlF ../production
+        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production compress_jlc_4layer
+        ls -AlF production
         ls -AlF ${{ github.workspace }}/working/module-power/production
 
     # - name: Generate Export Files
