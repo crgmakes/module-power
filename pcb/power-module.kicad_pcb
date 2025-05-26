@@ -36603,13 +36603,13 @@
 		(embedded_fonts no)
 		(model "${KICAD9_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/TO-252-2.wrl"
 			(offset
-				(xyz 0 0 0)
+				(xyz -1.5 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
@@ -38038,7 +38038,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "ee43933a-725c-446f-aeb2-467d3b9bd228")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 -4.18)
@@ -38050,7 +38050,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "8ec5d3b4-45d7-4117-99f6-8f4461b671e8")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 0)
@@ -38062,18 +38062,18 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "536a85b3-538f-4761-9780-132db040a72b")
+			(uuid "6a480a48-8b9b-4981-9762-a82b6b08260f")
 		)
 		(embedded_fonts no)
-		(model "/Users/tsasala/Development/pcb/KiCad/Models/USB4105-GF-A-060.stp"
+		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.step"
 			(offset
-				(xyz 0 -2.6 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -90 -0 -0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)

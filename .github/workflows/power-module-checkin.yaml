@@ -82,8 +82,16 @@ jobs:
         # ls -AlF production
         # ls -AlF ${{ github.workspace }}/working/module-power/production
 
-    - name: Generate Panel PCB
-      # if: github.event_name == 'release'
+    - name: Generate Release Fabrication Files
+      if: github.event_name == 'release'
+      run: |
+        echo "Working Directory: ${{ github.workspace }}"
+        cd working/module-power/
+        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
+        # production now contains power-module-release.zip
+
+    - name: Generate Release Panel
+      if: github.event_name == 'release'
       run: |
         cd working/module-power/pcb/panel
         rm -rf production
@@ -94,6 +102,7 @@ jobs:
         mv production/power-module-panel.zip .
         # add panelized PCB to archive
         zip -u power-module-panel.zip pcb/**
+        mv power-module-panel.zip power-module-panel-release.zip
 
     - name: Upload PCB Artifacts
       uses: actions/upload-artifact@v4
@@ -104,12 +113,22 @@ jobs:
         if-no-files-found: warn
         retention-days: 30
 
-    - name: Upload Panel Artifacts
-      # if: github.event_name == 'release'
+    - name: Upload Release Artifacts
+      if: github.event_name == 'release'
       uses: actions/upload-artifact@v4
       with:
-        name: aquarius-power-module-panel
+        name: aquarius-power-module-release-${{ github.event.release.tag_name }}
         path: |
-          working/module-power/pcb/panel/power-module-panel.zip
+          working/module-power/production/power-module-release.zip
+          working/module-power/pcb/panel/power-module-panel-release.zip
         if-no-files-found: warn
         retention-days: 30
+
+    - name: Upload Release
+      uses: softprops/action-gh-release@v1
+      if: github.event_name == 'release'
+      with:
+        name: aquarius-power-module-release-${{ github.event.release.tag_name }}
+        files: |
+          working/module-power/production/power-module-release.zip
+          working/module-power/pcb/panel/power-module-panel-release.zip
