@@ -82,47 +82,31 @@ jobs:
         ls -AlF production
         # ls -AlF ${{ github.workspace }}/working/module-power/production
 
-    # - name: Generate Export Files
-    #   run: |
-    #     cd pcb
-    #     rm -rf production/
-    #     kibot -c power-module-checkin.kibot.yaml -e power-module.kicad_sch -b power-module.kicad_pcb -d production
-    #     cd production
-    #     zip -r -j power-module-gerber.zip gerber/*
-    #     rm -rf gerber/*
-    #     mv power-module-gerber.zip gerber
-    #     zip -r ../aquarius-power-module-pcb.zip * ../power-module.kicad_sch ../power-module.kicad_pcb
+    - name: Generate Panel PCB
+      # if: github.event_name == 'release'
+      run: |
+        cd working/module-power/pcb/panel
+        rm -rf production
+        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d pcb panelize
+        kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production compress_jlc_4layer_panel
+        mv production/power-module-panel-fab.zip .
+        zip -u power-module-panel-fab.zip pcb/**
 
-    # - name: Generate Production Files (Gerber, BOM, Position)
-    #   run: |
-    #     cd fabkit
-    #     python3 -m plugins.cli -p ../pcb/power-module.kicad_pcb -u1 -t -f -e
-
-    # - name: Zip Export Files
-    #   run: |
-    #     cd pcb
-    #     echo `pwd`'/production'
-    #     ls -AlF production
-    #     cd production
-    #     mkdir pnp
-    #     mkdir gerber
-    #     mkdir pcb
-    #     mkdir netlist
-    #     rm -rf backups
-    #     mv bom.csv pnp/power-module-jlc-bom.csv
-    #     mv positions.csv pnp/power-module-jlc-cpl.csv
-    #     mv designators.csv pnp/power-module-jlc-designators.csv
-    #     mv power-module.zip gerber
-    #     cp ../power-module.kicad_sch pcb
-    #     cp ../power-module.kicad_pcb pcb
-    #     mv netlist.ipc netlist/power-module-netlist.ipc
-    #     zip -r ../aquarius-power-module.zip *
-
-    - name: Upload Files as Artifacts
+    - name: Upload PCB Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: aquarius-power-module-pcb
         path: |
           working/module-power/production/power-module-fab.zip
+        if-no-files-found: warn
+        retention-days: 30
+
+    - name: Upload Panel Artifacts
+      # if: github.event_name == 'release'
+      uses: actions/upload-artifact@v4
+      with:
+        name: aquarius-power-module-panel
+        path: |
+          working/module-power/pcb/panel/power-module-fab.zip
         if-no-files-found: warn
         retention-days: 30
