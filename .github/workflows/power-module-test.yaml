@@ -20,6 +20,12 @@ jobs:
       run: |
         echo "Directory '$(pwd)' Contents"
         ls -AlF
+        echo "Directory env.GITHUB_WORKSPACE '${{ env.GITHUB_WORKSPACE }}'"
+        ls -AlF ${{env.GITHUB_WORKSPACE}}
+        echo "Directory GITHUB_WORKSPACE '$GITHUB_WORKSPACE'"
+        ls -AlF $GITHUB_WORKSPACE
+        echo "Directory HOME '$HOME'"
+        ls -AlF $HOME
         mkdir working
         ls -AlF
 
