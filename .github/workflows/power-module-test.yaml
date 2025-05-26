@@ -10,8 +10,82 @@ on:
   workflow_dispatch:
     
 jobs:
-  test-clone:
-    name: Test Cloning
+  # test-clone:
+  #   name: Test Cloning
+  #   runs-on: ubuntu-latest
+  #   container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+      
+  #   steps:
+  #   - name: List Directory
+  #     run: |
+  #       echo "Directory '$(pwd)' Contents"
+  #       ls -AlF
+  #       echo "Directory env.GITHUB_WORKSPACE '${{ env.GITHUB_WORKSPACE }}'"
+  #       ls -AlF ${{env.GITHUB_WORKSPACE}}
+  #       echo "Directory GITHUB_WORKSPACE '$GITHUB_WORKSPACE'"
+  #       ls -AlF $GITHUB_WORKSPACE
+  #       echo "Directory HOME '$HOME'"
+  #       ls -AlF $HOME
+  #       mkdir working
+  #       ls -AlF
+
+  #   # - name: Update system
+  #   #   run: |
+  #   #     apt update
+  #   #     apt -y install git zip
+
+  #   - name: Checkout Repository
+  #     uses: actions/checkout@v4
+  #     with:
+  #       path: working/module-power
+
+  #   - name: Checkout Extras
+  #     uses: actions/checkout@v4
+  #     with:
+  #       repository: crgmakes/kicad-extras
+  #       path: working/kicad-extras
+
+  #   - name: Checkout CRGM Library
+  #     uses: actions/checkout@v4
+  #     with:
+  #       repository: crgmakes/kicad-library
+  #       path: working/kicad-library
+
+  #   - name: Checkout PcbDraw Library
+  #     uses: actions/checkout@v4
+  #     with:
+  #       repository: yaqwsx/PcbDraw-Lib
+  #       path: working/PcbDraw-Lib
+
+  #   - name: Checkout Fab Kit Library
+  #     uses: actions/checkout@v4
+  #     with:
+  #       repository: bennymeg/Fabrication-Toolkit
+  #       path: working/Fabrication-Toolkit
+
+  #   - name: List Directory
+  #     run: |
+  #       cd working
+  #       echo "Directory '$(pwd)' Contents"
+  #       ls -AlF
+
+  # test-previous-clone:
+  #     name: Test Previous Clone
+  #     runs-on: ubuntu-latest
+  #     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
+  #     needs: test-clone
+
+  #     steps:
+  #     - name: List Directory
+  #       run: |
+  #         echo "Directory '$(pwd)' Contents"
+  #         ls -AlF
+  #         # cd working
+  #         # echo "Directory '$(pwd)' Contents"
+  #         # ls -AlF
+
+  export-ecad:
+    name: Export 3d model
     runs-on: ubuntu-latest
     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
       
@@ -29,10 +103,11 @@ jobs:
         mkdir working
         ls -AlF
 
-    # - name: Update system
-    #   run: |
-    #     apt update
-    #     apt -y install git zip
+    - name: Update system
+      run: |
+        echo "Working Directory $(pwd)"
+        apt update
+        apt -y install git zip
 
     - name: Checkout Repository
       uses: actions/checkout@v4
@@ -63,27 +138,24 @@ jobs:
         repository: bennymeg/Fabrication-Toolkit
         path: working/Fabrication-Toolkit
 
-    - name: List Directory
+    - name: Update fonts
       run: |
-        cd working
-        echo "Directory '$(pwd)' Contents"
-        ls -AlF
+        mkdir -p /usr/share/fonts/
+        cp working/kicad-extras/fonts/* /usr/share/fonts/
+        fc-cache -f -v
 
-  # test-previous-clone:
-  #     name: Test Previous Clone
-  #     runs-on: ubuntu-latest
-  #     container: ghcr.io/inti-cmnb/kicad9_auto_full:latest
-  #     needs: test-clone
+    - name: Generate Single PCB Fabrication Files
+      run: |
+        echo "Working Directory: ${{ github.workspace }}"
+        echo "Working Directory: ${GITHUB_WORKSPACE}"
+        cd working/module-power/
+        kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production render_top
 
-  #     steps:
-  #     - name: List Directory
-  #       run: |
-  #         echo "Directory '$(pwd)' Contents"
-  #         ls -AlF
-  #         # cd working
-  #         # echo "Directory '$(pwd)' Contents"
-  #         # ls -AlF
-
-
-
-
+    - name: Upload Render Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: aquarius-power-module-pcb
+        path: |
+          working/module-power/production/doc/render/*
+        if-no-files-found: warn
+        retention-days: 30
