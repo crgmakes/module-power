@@ -32702,7 +32702,7 @@
 			(uuid "6e34e61d-bff2-4ffa-95a2-c95e36c169a6")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.stp"
+		(model "${KICAD_USER_MODEL_DIR}/LM66200DRLR.step"
 			(offset
 				(xyz 0 0.02999999888 0)
 			)
@@ -38077,15 +38077,15 @@
 			(uuid "4ce00312-60da-4125-bfee-4d6425fcc3d8")
 		)
 		(embedded_fonts no)
-		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.stp"
+		(model "${KICAD_USER_MODEL_DIR}/USB4105-GF-A-060.step"
 			(offset
-				(xyz 0 -2.6 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -90 -0 -0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
