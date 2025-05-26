@@ -118,6 +118,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: aquarius-power-module-pcb
-        path: working/module-power/*.zip
+        path: working/module-power/production/*.zip
         if-no-files-found: error
         retention-days: 30
