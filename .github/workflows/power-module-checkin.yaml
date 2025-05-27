@@ -91,6 +91,7 @@ jobs:
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
         # production now contains power-module-release.zip
+        cp production/power-module-release.zip ./power-module-release-${{ github.event.release.tag_name }}.zip
 
     - name: Generate PCB Panel for Release
       if: github.event_name == 'release'
@@ -104,7 +105,8 @@ jobs:
         mv production/power-module-panel.zip .
         # add panelized PCB to archive
         zip -u power-module-panel.zip pcb/**
-        mv power-module-panel.zip power-module-panel-release.zip
+        mv power-module-panel.zip power-module-panel-release-${{ github.event.release.tag_name }}.zip
+        # working/module-power/pcb/panel now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
 
     - name: Upload PCB Artifacts
       if: github.event_name != 'release'
@@ -122,8 +124,8 @@ jobs:
       with:
         name: aquarius-power-module-${{ github.event.release.tag_name }}
         path: |
-          working/module-power/production/power-module-release.zip
-          working/module-power/pcb/panel/power-module-panel-release.zip
+          working/module-power/power-module-release-${{ github.event.release.tag_name }}.zip
+          working/module-power/pcb/panel/power-module-panel-release-${{ github.event.release.tag_name }}.zip
         if-no-files-found: warn
         retention-days: 30
 
@@ -133,5 +135,5 @@ jobs:
       with:
         name: aquarius-power-module-${{ github.event.release.tag_name }}
         files: |
-          working/module-power/production/power-module-release.zip
-          working/module-power/pcb/panel/power-module-panel-release.zip
+          working/module-power/power-module-release-${{ github.event.release.tag_name }}.zip
+          working/module-power/pcb/panel/power-module-panel-release-${{ github.event.release.tag_name }}.zip
