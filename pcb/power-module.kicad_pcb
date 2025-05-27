@@ -37221,20 +37221,7 @@
 				)
 			)
 		)
-		(property "JLCPCB" "C408335"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4656a0cb-b02e-4506-b913-edc9735cd35f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC" "C408335"
+		(property "LCSC" "C438930"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -37279,58 +37266,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "797639fa-2092-4232-96fd-f50c849ea88e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC_MF_PN" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8a32573d-711d-4fa0-a657-b079be931a23")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MN_PN" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "07659095-eca6-4fe5-9add-4930f9c3e23b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e39352aa-ce88-40f7-b7dc-f6a73b626417")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "01d2757b-24a4-4496-83d3-968f6940fc02")
 			(effects
 				(font
 					(size 1 1)
