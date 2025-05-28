@@ -1,7 +1,7 @@
 # Aquarius - Automation Simplified
 #
 # @brief Git script for exporting PCB data for Power Module
-# @note only runs when files are checked in
+# @note runs manually or automatically when there is a release
 # @date 5/16/25
 # @author cyberreefguru
 # (c) CRG Makes 2025
@@ -9,11 +9,11 @@ name: Aquarius-Power-Module-Checkin-CI
 on:
   release:
     types: [published]
-  push:
-    paths:
-      # - 'pcb/power-module.kicad_sch'
-      - 'pcb/power-module.kicad_pcb'
-      - '.github/workflows/power-module-checkin.yaml'
+  # push:
+  #   paths:
+  #     # - 'pcb/power-module.kicad_sch'
+  #     - 'pcb/power-module.kicad_pcb'
+  #     - '.github/workflows/power-module-checkin.yaml'
   workflow_dispatch:
     
 jobs:
@@ -74,32 +74,37 @@ jobs:
         cd pcb
         sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
 
+    # only generate fab files if this is not a release (e.g., run manually)
+    # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, and images
     - name: Generate Single PCB Fabrication Files
+      if: github.event_name != 'release'
       run: |
-        echo "Working Directory: ${{ github.workspace }}"
+        echo "Working Directory: ${GITHUB_WORKSPACE}"
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
-        #kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
-        # production now contains power-module.zip
-        # ls -AlF production
-        # ls -AlF ${{ github.workspace }}/working/module-power/production
 
+    # only generate full fab files for a release
+    # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, images, 3d model, and renders
     - name: Generate Release Fabrication Files
       if: github.event_name == 'release'
       run: |
-        echo "Working Directory: ${{ github.workspace }}"
+        echo "Working Directory: ${GITHUB_WORKSPACE}"
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
         # production now contains power-module-release.zip
         cp production/power-module-release.zip ./power-module-release-${{ github.event.release.tag_name }}.zip
 
+    # only generate panel during a release
+    # generates fab files for the panel PCB, includes gerber, drill, images - does NOT include ibom, 3d model, schematic, or renders
     - name: Generate PCB Panel for Release
       if: github.event_name == 'release'
       run: |
         cd working/module-power/pcb/panel
         rm -rf production
+        # create the panelized PCB
         kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d pcb create_panel
         # pcb now contains power-module-panel.kicad_pcb
+        # create fab files for panel; does not include renders and 
         kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production create_panel_archive_4layer
         # produciton now contains power-module-panel.zip
         mv production/power-module-panel.zip .
@@ -108,6 +113,8 @@ jobs:
         mv power-module-panel.zip power-module-panel-release-${{ github.event.release.tag_name }}.zip
         # working/module-power/pcb/panel now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
 
+    # only runs if NOT a release
+    # Upload fab artifacts to workflow
     - name: Upload PCB Artifacts
       if: github.event_name != 'release'
       uses: actions/upload-artifact@v4
@@ -118,6 +125,8 @@ jobs:
         if-no-files-found: warn
         retention-days: 30
 
+    # only runs during a release
+    # Upload release fab artifacts to workflow
     - name: Upload Release Artifacts
       if: github.event_name == 'release'
       uses: actions/upload-artifact@v4
@@ -129,6 +138,8 @@ jobs:
         if-no-files-found: warn
         retention-days: 30
 
+    # only runs during a release
+    # Upload fab artifacts to release
     - name: Upload files to release area
       uses: softprops/action-gh-release@v1
       if: github.event_name == 'release'
