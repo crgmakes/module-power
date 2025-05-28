@@ -37171,7 +37171,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8552174640249257984"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588935518867869696"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -37183,7 +37183,7 @@
 				)
 			)
 		)
-		(property "Description" "4.5A 2.2uH ±20% 5A SMD,4.4x4.2mm Power Inductors"
+		(property "Description" "3A 2.2uH Shielded inductor ±20% SMD,4.4x4.2mm Power Inductors"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -37195,7 +37195,7 @@
 				)
 			)
 		)
-		(property "MN" "Sunlord"
+		(property "MN" "Cybermax"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -37208,7 +37208,7 @@
 				)
 			)
 		)
-		(property "MPN" "MWSA0402S-2R2MT"
+		(property "MPN" "CMLO0420H2R2MTT"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")

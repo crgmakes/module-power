@@ -2,7 +2,7 @@
     "layout": {
         "hspace": "2mm",
         "vspace": "2mm",
-        "rows": "2",
+        "rows": "1",
         "cols": "2"
     },
     "tabs": {
