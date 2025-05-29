@@ -70,9 +70,26 @@ jobs:
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"    
         echo "ref: ${{ github.ref }}"
+        echo "tag: ${{ github.event.release.tag_name }}"
         echo "default: ${{ env.default }}"
         cd pcb
         sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
+
+    - name: Update the PCB build with git hash
+      if: github.event_name != 'release'
+      run: |
+        cd working/module-power/pcb
+        echo "tag: ${{ github.ref_name }}"
+        echo "release tag: ${{ github.event.release.tag_name }}"
+        sed -i "s!<<tag>>!${{ github.ref_name }}!" power-module.kicad_pcb
+
+    - name: Update the PCB release with git hash and version tag
+      if: github.event_name == 'release'
+      run: |
+        cd working/module-power/pcb
+        echo "tag: ${{ github.ref_name }}"
+        echo "release tag: ${{ github.event.release.tag_name }}"
+        sed -i "s!<<tag>>!${{ github.event.release.tag_name }}!" power-module.kicad_pcb
 
     # only generate fab files if this is not a release (e.g., run manually)
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, and images
