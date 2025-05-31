@@ -5,15 +5,10 @@
 # @date 5/16/25
 # @author cyberreefguru
 # (c) CRG Makes 2025
-name: Aquarius-Power-Module-Checkin-CI
+name: Aquarius-Power-Module-Release
 on:
   release:
     types: [published]
-  # push:
-  #   paths:
-  #     # - 'pcb/power-module.kicad_sch'
-  #     - 'pcb/power-module.kicad_pcb'
-  #     - '.github/workflows/power-module-checkin.yaml'
   workflow_dispatch:
     
 jobs:
