@@ -64,25 +64,26 @@ jobs:
         cp working/kicad-extras/fonts/* /usr/share/fonts/
         fc-cache -f -v
 
+    # Update PCB with hash of current check in
     - name: Update the PCB with git hash
       run: |
         cd working/module-power
         export COMMIT=$(git rev-parse --short HEAD)
         echo "COMMIT = ${COMMIT}"    
-        echo "ref: ${{ github.ref }}"
-        echo "tag: ${{ github.event.release.tag_name }}"
-        echo "default: ${{ env.default }}"
+        echo "ref: '${{ github.ref }}'"
+        echo "tag: '${{ github.event.release.tag_name }}'"
+        echo "default: '${{ env.default }}'"
         cd pcb
         sed -i "s!<<hash>>!${COMMIT}!" power-module.kicad_pcb
 
+    # Remove tag from PCB since this is not a release
     - name: Update the PCB build with git hash
       if: github.event_name != 'release'
       run: |
         cd working/module-power/pcb
-        echo "tag: ${{ github.ref_name }}"
-        echo "release tag: ${{ github.event.release.tag_name }}"
-        sed -i "s!<<tag>>!${{ github.ref_name }}!" power-module.kicad_pcb
+        sed -i "s!<<tag>>! !" power-module.kicad_pcb
 
+    # Update PCB with release tag
     - name: Update the PCB release with git hash and version tag
       if: github.event_name == 'release'
       run: |
@@ -91,14 +92,17 @@ jobs:
         echo "release tag: ${{ github.event.release.tag_name }}"
         sed -i "s!<<tag>>!${{ github.event.release.tag_name }}!" power-module.kicad_pcb
 
-    # only generate fab files if this is not a release (e.g., run manually)
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, and images
+    # NOTE: only run if this is not a release (e.g., run manually)
     - name: Generate Single PCB Fabrication Files
       if: github.event_name != 'release'
       run: |
         echo "Working Directory: ${GITHUB_WORKSPACE}"
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
+        # production now contains power-module.zip
+        mv production/module-power.zip ../..
+        # module-power.zip now in home directory
 
     # only generate full fab files for a release
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, images, 3d model, and renders
@@ -109,7 +113,8 @@ jobs:
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
         # production now contains power-module-release.zip
-        cp production/power-module-release.zip ./power-module-release-${{ github.event.release.tag_name }}.zip
+        mv production/power-module-release.zip ../../power-module-release-${{ github.event.release.tag_name }}.zip
+        # module-power-release-<<tag>>.zip now in home directory
 
     # only generate panel during a release
     # generates fab files for the panel PCB, includes gerber, drill, images - does NOT include ibom, 3d model, schematic, or renders
@@ -120,16 +125,15 @@ jobs:
         rm -rf production
         # create the panelized PCB
         kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b ../power-module.kicad_pcb -d pcb create_panel
-        # pcb now contains power-module-panel.kicad_pcb
-        # create fab files for panel; does not include renders and 
+        # working/module-power/pcb/panel/pcb now contains power-module-panel.kicad_pcb
+        # create fab files for panel; does not include renders and 3d model
         kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production create_panel_archive_4layer
         # produciton now contains power-module-panel.zip
         mv production/power-module-panel.zip .
         # add panelized PCB to archive
         zip -u power-module-panel.zip pcb/**
-        mv power-module-panel.zip power-module-panel-release-${{ github.event.release.tag_name }}.zip
-        # working/module-power/pcb/panel now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
-        # **** FLATTEN RELEASE PACKAGE ****
+        mv power-module-panel.zip ../../../power-module-panel-release-${{ github.event.release.tag_name }}.zip
+        # home now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
 
     # only runs if NOT a release
     # Upload fab artifacts to workflow
@@ -139,30 +143,30 @@ jobs:
       with:
         name: aquarius-power-module
         path: |
-          working/module-power/production/power-module.zip
+          power-module.zip
         if-no-files-found: warn
         retention-days: 30
 
-    # only runs during a release
     # Upload release fab artifacts to workflow
+    # NOTE: only runs during a release
     - name: Upload Release Artifacts
       if: github.event_name == 'release'
       uses: actions/upload-artifact@v4
       with:
         name: aquarius-power-module-${{ github.event.release.tag_name }}
         path: |
-          working/module-power/power-module-release-${{ github.event.release.tag_name }}.zip
-          working/module-power/pcb/panel/power-module-panel-release-${{ github.event.release.tag_name }}.zip
+          power-module-release-${{ github.event.release.tag_name }}.zip
+          power-module-panel-release-${{ github.event.release.tag_name }}.zip
         if-no-files-found: warn
         retention-days: 30
 
-    # only runs during a release
-    # Upload fab artifacts to release
+    # Upload release fab artifacts to release
+    # NOTE: only runs during a release
     - name: Upload files to release area
       uses: softprops/action-gh-release@v1
       if: github.event_name == 'release'
       with:
         name: aquarius-power-module-${{ github.event.release.tag_name }}
         files: |
-          working/module-power/power-module-release-${{ github.event.release.tag_name }}.zip
-          working/module-power/pcb/panel/power-module-panel-release-${{ github.event.release.tag_name }}.zip
+          power-module-release-${{ github.event.release.tag_name }}.zip
+          power-module-panel-release-${{ github.event.release.tag_name }}.zip
