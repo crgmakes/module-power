@@ -129,6 +129,7 @@ jobs:
         zip -u power-module-panel.zip pcb/**
         mv power-module-panel.zip power-module-panel-release-${{ github.event.release.tag_name }}.zip
         # working/module-power/pcb/panel now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
+        # **** FLATTEN RELEASE PACKAGE ****
 
     # only runs if NOT a release
     # Upload fab artifacts to workflow
@@ -136,7 +137,7 @@ jobs:
       if: github.event_name != 'release'
       uses: actions/upload-artifact@v4
       with:
-        name: aquarius-power-module-pcb
+        name: aquarius-power-module
         path: |
           working/module-power/production/power-module.zip
         if-no-files-found: warn
