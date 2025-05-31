@@ -102,7 +102,7 @@ jobs:
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, images, 3d model, and renders
     # NOTE: only run if this is a release
     - name: Generate Release Fabrication Files
-      #if: github.event_name == 'release'
+      if: github.event_name == 'release'
       run: |
         echo "Working Directory: ${GITHUB_WORKSPACE}"
         cd working/module-power/
@@ -114,7 +114,7 @@ jobs:
     # only generate panel during a release
     # generates fab files for the panel PCB, includes gerber, drill, images - does NOT include ibom, 3d model, schematic, or renders
     - name: Generate PCB Panel for Release
-      #if: github.event_name == 'release'
+      if: github.event_name == 'release'
       run: |
         cd working/module-power/pcb/panel
         rm -rf production
