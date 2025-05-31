@@ -104,8 +104,8 @@ jobs:
         mv production/power-module.zip ../..
         # power-module.zip now in home directory
 
-    # only generate full fab files for a release
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, images, 3d model, and renders
+    # NOTE: only run if this is a release
     - name: Generate Release Fabrication Files
       if: github.event_name == 'release'
       run: |
@@ -128,11 +128,13 @@ jobs:
         # working/module-power/pcb/panel/pcb now contains power-module-panel.kicad_pcb
         # create fab files for panel; does not include renders and 3d model
         kibot -c ../../../kicad-extras/kibot/crgm.kibot.yaml -e ../power-module.kicad_sch -b pcb/power-module-panel.kicad_pcb -d production create_panel_archive_4layer
-        # produciton now contains power-module-panel.zip
+        # production now contains power-module-panel.zip
         mv production/power-module-panel.zip .
         # add panelized PCB to archive
         zip -u power-module-panel.zip pcb/**
         mv power-module-panel.zip ../../../../power-module-panel-release-${{ github.event.release.tag_name }}.zip
+        ls -AlF ${GITHUB_WORKSPACE}
+        ls -AlF ${GITHUB_WORKSPACE}/working
         # home now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
 
     # only runs if NOT a release
