@@ -628,6 +628,12 @@
         },
         {
           "group_by": false,
+          "label": "FT Rotation Offset",
+          "name": "FT Rotation Offset",
+          "show": false
+        },
+        {
+          "group_by": false,
           "label": "Height",
           "name": "Height",
           "show": false

@@ -101,8 +101,8 @@ jobs:
         cd working/module-power/
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_pcb_archive_4layer
         # production now contains power-module.zip
-        mv production/module-power.zip ../..
-        # module-power.zip now in home directory
+        mv production/power-module.zip ../..
+        # power-module.zip now in home directory
 
     # only generate full fab files for a release
     # generates fab files for the single PCB, includes gerber, drill, ibom, schematic, images, 3d model, and renders
@@ -114,7 +114,7 @@ jobs:
         kibot -c ../kicad-extras/kibot/crgm.kibot.yaml -e pcb/power-module.kicad_sch -b pcb/power-module.kicad_pcb -d production create_release_archive_4layer
         # production now contains power-module-release.zip
         mv production/power-module-release.zip ../../power-module-release-${{ github.event.release.tag_name }}.zip
-        # module-power-release-<<tag>>.zip now in home directory
+        # power-module-release-<<tag>>.zip now in home directory
 
     # only generate panel during a release
     # generates fab files for the panel PCB, includes gerber, drill, images - does NOT include ibom, 3d model, schematic, or renders

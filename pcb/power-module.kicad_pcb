@@ -37411,6 +37411,7 @@
 		(path "/b8afaf26-3350-451a-9db4-bdaa0ff65bb3")
 		(sheetname "/")
 		(sheetfile "power-module.kicad_sch")
+		(attr smd)
 		(fp_line
 			(start -4.47 -2.825)
 			(end -4.47 -1.2)
