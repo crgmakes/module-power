@@ -132,7 +132,7 @@ jobs:
         mv production/power-module-panel.zip .
         # add panelized PCB to archive
         zip -u power-module-panel.zip pcb/**
-        mv power-module-panel.zip ../../../power-module-panel-release-${{ github.event.release.tag_name }}.zip
+        mv power-module-panel.zip ../../../../power-module-panel-release-${{ github.event.release.tag_name }}.zip
         # home now contains power-module-panel-release-${{ github.event.release.tag_name }}.zip
 
     # only runs if NOT a release
