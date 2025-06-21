@@ -343,7 +343,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "CRGM Connector:JST-SH-4"
+		(symbol "CRGM Connector:AQ_POWER"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -404,7 +404,7 @@
 					(hide yes)
 				)
 			)
-			(property "MPN" "BM04B-SRSS-TBT(LF)(SN)"
+			(property "MPN" "SM04B-SRSS-TBT(LF)(SN)"
 				(at 3.81 -18.542 0)
 				(effects
 					(font
@@ -413,7 +413,7 @@
 					(hide yes)
 				)
 			)
-			(property "Mouser" "306-BM04BSRSSTBTLFSN"
+			(property "Mouser" "306-SM04BSRSSTBTLFSN"
 				(at 3.556 -21.082 0)
 				(effects
 					(font
@@ -422,7 +422,7 @@
 					(hide yes)
 				)
 			)
-			(property "Digikey" "455-BM04B-SRSS-TBTR-ND"
+			(property "Digikey" "455-SM04B-SRSS-TBTR-ND"
 				(at 3.556 -23.368 0)
 				(effects
 					(font
@@ -440,7 +440,16 @@
 					(hide yes)
 				)
 			)
-			(symbol "JST-SH-4_1_0"
+			(property "ki_keywords" "aquarius, power, connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "AQ_POWER_1_0"
 				(polyline
 					(pts
 						(xy 0 2.54) (xy 7.62 2.54)
@@ -489,10 +498,10 @@
 						(type none)
 					)
 				)
-				(pin passive line
+				(pin power_out line
 					(at -2.54 0 0)
 					(length 2.54)
-					(name "4"
+					(name "V3.3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -510,7 +519,7 @@
 				(pin passive line
 					(at -2.54 -2.54 0)
 					(length 2.54)
-					(name "3"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -528,7 +537,7 @@
 				(pin passive line
 					(at -2.54 -5.08 0)
 					(length 2.54)
-					(name "2"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -543,10 +552,10 @@
 						)
 					)
 				)
-				(pin passive line
+				(pin power_out line
 					(at -2.54 -7.62 0)
 					(length 2.54)
-					(name "1"
+					(name "V5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -35730,7 +35739,7 @@
 		)
 	)
 	(symbol
-		(lib_id "CRGM Connector:JST-SH-4")
+		(lib_id "CRGM Connector:AQ_POWER")
 		(at 99.06 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -35761,7 +35770,7 @@
 			)
 		)
 		(property "Footprint" "CRGM Connector:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
-			(at 102.616 107.95 0)
+			(at 102.108 130.556 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35770,7 +35779,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
-			(at 99.06 116.84 0)
+			(at 102.616 144.272 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35778,8 +35787,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "JST SH 1.0mm 4 Position"
-			(at 102.87 110.236 0)
+		(property "Description" "4 Position, 1mm pitch"
+			(at 102.108 132.842 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35788,7 +35797,7 @@
 			)
 		)
 		(property "MN" "JST"
-			(at 99.06 116.84 0)
+			(at 102.362 128.524 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35796,8 +35805,8 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "SM04B-SRSS-TB"
-			(at 99.06 116.84 0)
+		(property "MPN" "SM04B-SRSS-TBT(LF)(SN)"
+			(at 102.87 135.382 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35805,8 +35814,8 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "306-SM04BSRSSTBLFSN"
-			(at 99.06 116.84 0)
+		(property "Mouser" "306-SM04BSRSSTBTLFSN"
+			(at 102.616 137.922 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35815,7 +35824,7 @@
 			)
 		)
 		(property "Digikey" "455-SM04B-SRSS-TBTR-ND"
-			(at 99.06 116.84 0)
+			(at 102.616 140.208 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35824,7 +35833,7 @@
 			)
 		)
 		(property "LCSC" "C2763614"
-			(at 99.06 116.84 0)
+			(at 102.108 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
