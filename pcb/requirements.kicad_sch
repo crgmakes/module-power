@@ -1,0 +1,115 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "fc7f81a0-9af7-47bc-aa94-5f6cc8d08d53")
+	(paper "A4")
+	(title_block
+		(title "Power Module")
+		(date "2025-06-21")
+		(rev "1.1")
+		(company "CRG Makes")
+		(comment 1 "Aquarius")
+	)
+	(lib_symbols)
+	(text "Requirements"
+		(exclude_from_sim no)
+		(at 15.494 15.621 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+				(thickness 0.635)
+				(bold yes)
+				(color 204 102 0 1)
+			)
+			(justify left top)
+		)
+		(uuid "bbb74612-c8d7-4078-9dd3-32e18a5a4b56")
+	)
+	(text_box "Basic\n\nPower can be supplied by USB or through the AC to allow prototyping without a high voltage source.\n\nPower source is automatically selected to be the higher of the two input sources.\n\nOutput Power is +5V @ 2A and +3.3V @ 3A."
+		(exclude_from_sim yes)
+		(at 15.24 27.305 0)
+		(size 116.84 55.88)
+		(margins 2.032 2.032 2.032 2.032)
+		(stroke
+			(width 0.254)
+			(type solid)
+			(color 132 0 132 1)
+		)
+		(fill
+			(type color)
+			(color 255 229 191 1)
+		)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.254)
+				(bold yes)
+				(color 194 0 194 1)
+			)
+			(justify left top)
+		)
+		(uuid "16d51c15-12ec-4cb4-a810-bd05b029ae78")
+	)
+	(text_box "MISC\n* Indicators for 5V and 3.3V (power presence of power)\n* ESD protection for external connectors\n* Reverse voltage protection\n* 4 M3 mounting holes\n* Test points for major signals\n* 4 Layer PCB"
+		(exclude_from_sim yes)
+		(at 15.24 88.265 0)
+		(size 116.84 54.61)
+		(margins 2.032 2.032 2.032 2.032)
+		(stroke
+			(width 0.254)
+			(type solid)
+			(color 132 0 132 1)
+		)
+		(fill
+			(type color)
+			(color 255 229 191 1)
+		)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.254)
+				(bold yes)
+				(color 194 0 194 1)
+			)
+			(justify left top)
+		)
+		(uuid "5880ba7e-a1a1-4185-80c3-957acd721e80")
+	)
+	(text_box "Interfaces:\n1 - USB Power In, 3A\n1 - AC Power In; 120V or 240V\n\nOUTPUT:\n2 - Power Out Connectors\n"
+		(exclude_from_sim yes)
+		(at 134.62 27.305 0)
+		(size 81.28 55.88)
+		(margins 2.032 2.032 2.032 2.032)
+		(stroke
+			(width 0.254)
+			(type solid)
+			(color 132 0 132 1)
+		)
+		(fill
+			(type color)
+			(color 255 229 191 1)
+		)
+		(effects
+			(font
+				(size 2.54 2.54)
+				(thickness 0.254)
+				(bold yes)
+				(color 194 0 194 1)
+			)
+			(justify left top)
+		)
+		(uuid "e1cf46a0-3aec-4bf5-9622-6790bf1bd245")
+	)
+	(polyline
+		(pts
+			(xy 16.51 22.225) (xy 67.31 22.225)
+		)
+		(stroke
+			(width 0.508)
+			(type default)
+			(color 204 102 0 1)
+		)
+		(uuid "2d777eef-dfce-4b28-aeb5-462e923edac6")
+	)
+)

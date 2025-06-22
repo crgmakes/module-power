@@ -744,6 +744,14 @@
     [
       "445c1fff-2e1a-48b1-a91f-a137832edebf",
       "Root"
+    ],
+    [
+      "543a867e-1994-496d-b3ac-5b77f0507240",
+      "Requirements"
+    ],
+    [
+      "cd8e8497-f5e1-4348-acdb-de9b8b105e95",
+      "Power Module"
     ]
   ],
   "text_variables": {}
