@@ -6,10 +6,6 @@
 	(paper "A4")
 	(title_block
 		(title "Power Module")
-		(date "2025-06-21")
-		(rev "1.1")
-		(company "CRG Makes")
-		(comment 1 "Aquarius")
 	)
 	(lib_symbols)
 	(text "Requirements"
