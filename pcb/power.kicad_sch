@@ -5793,6 +5793,132 @@
 		)
 	)
 	(symbol
+		(lib_id "CRGM Passive:C_Polarized_Small")
+		(at 69.85 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1964fbd1-3547-4792-bf5b-f6d25c61894e")
+		(property "Reference" "C1"
+			(at 70.104 81.026 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "220uF"
+			(at 70.104 84.328 0)
+			(effects
+				(font
+					(size 1 1)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "CRGM Passive:CP_Elec_6.3x5.4"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588885125476466688"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "-40℃~+105℃ 10V 2000hrs@105℃ 220uF 5.4mm 6.3mm 90mA@120Hz ±20%"
+			(at 69.85 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MN" "ROQANG"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RVT1A221M0605"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser" "80-EDH227M6R3A9GAA"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1 1)
+					(color 223 129 255 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "3372-UE227M010HEHTATR-ND"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1 1)
+					(color 223 129 255 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C72494"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1 1)
+					(color 223 129 255 1)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "5.4"
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3f16080e-992c-4e3d-a5ae-e76525e270e8")
+		)
+		(pin "2"
+			(uuid "8632024e-4369-4ecf-b024-a83f5bdb0bce")
+		)
+		(instances
+			(project "power-module"
+				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf/cd8e8497-f5e1-4348-acdb-de9b8b105e95"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 25.4 162.56 0)
 		(unit 1)
@@ -6853,7 +6979,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100uF"
+		(property "Value" "220uF"
 			(at 136.144 88.138 0)
 			(effects
 				(font
@@ -6871,7 +6997,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://jlcpcb.com/api/file/downloadByFileSystemAccessId/8588885125476466688"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6880,7 +7006,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "-40℃~+105℃ 100uF 10V 2000hrs@105℃ 5.4mm 55mA@120Hz 6.3mm ±20%"
+		(property "Description" "-40℃~+105℃ 10V 2000hrs@105℃ 220uF 5.4mm 6.3mm 90mA@120Hz ±20%"
 			(at 135.89 96.52 0)
 			(effects
 				(font
@@ -6889,7 +7015,7 @@
 				(hide yes)
 			)
 		)
-		(property "MN" "Honor Elec"
+		(property "MN" "ROQANG"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6898,7 +7024,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "RVT1A101M0605"
+		(property "MPN" "RVT1A221M0605"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6907,7 +7033,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser" "667-EEE-1AA101SP"
+		(property "Mouser" "80-EDH227M6R3A9GAA"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6917,7 +7043,7 @@
 				(hide yes)
 			)
 		)
-		(property "Digikey" "PCE3866TR-ND"
+		(property "Digikey" "3372-UE227M010HEHTATR-ND"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6927,7 +7053,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C72474"
+		(property "LCSC" "C72494"
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -6938,15 +7064,6 @@
 			)
 		)
 		(property "Height" "5.4"
-			(at 135.89 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
 			(at 135.89 86.36 0)
 			(effects
 				(font
@@ -9348,141 +9465,6 @@
 			(project "power-module"
 				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf/cd8e8497-f5e1-4348-acdb-de9b8b105e95"
 					(reference "#PWR041")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CRGM Passive:C_Polarized_Small")
-		(at 69.85 82.55 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9e2e42ec-0aa2-412f-a3f1-4e0ef92ff70a")
-		(property "Reference" "C1"
-			(at 70.104 81.026 0)
-			(effects
-				(font
-					(size 1 1)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100uF"
-			(at 70.104 84.328 0)
-			(effects
-				(font
-					(size 1 1)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "CRGM Passive:CP_Elec_6.3x5.4"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "-40℃~+105℃ 100uF 10V 2000hrs@105℃ 5.4mm 55mA@120Hz 6.3mm ±20%"
-			(at 69.85 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MN" "Honor Elec"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "RVT1A101M0605"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Mouser" "667-EEE-1AA101SP"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Digikey" "PCE3866TR-ND"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C72474"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1 1)
-					(color 223 129 255 1)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "5.4"
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Notes" ""
-			(at 69.85 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8e96a7ee-f66f-4e74-93a0-ba2f0a96d766")
-		)
-		(pin "2"
-			(uuid "58eca525-59b5-43e2-a745-e69cd056df7c")
-		)
-		(instances
-			(project "power-module"
-				(path "/445c1fff-2e1a-48b1-a91f-a137832edebf/cd8e8497-f5e1-4348-acdb-de9b8b105e95"
-					(reference "C1")
 					(unit 1)
 				)
 			)
